@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'crispy_forms',  # new
 
     # Local
+    'pages',
     'users',
     'pages',
 ]
