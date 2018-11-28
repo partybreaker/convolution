@@ -2,10 +2,10 @@ from django.db import models
 
 
 class ValueWeight(models.Model):
-    value = models.DecimalField(max_digits=5, decimal_places=3)
+    value = models.DecimalField(max_length=30, max_digits=10, decimal_places=5)
 
     def __str__(self):
-        return self.value
+        return str(self.value)
 
 
 class Cam(models.Model):
@@ -80,6 +80,14 @@ class ROM(models.Model):
         verbose_name_plural = 'Оперативная память'
 
 
+class Price(models.Model):
+    value = models.DecimalField(max_length=30, max_digits=10, decimal_places=5)
+    weight = models.ForeignKey(ValueWeight, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.value)
+
+
 class Phone(models.Model):
     manufacture = models.ForeignKey(Manufacture, on_delete=models.CASCADE)
     cpu = models.ForeignKey(CPU, on_delete=models.CASCADE)
@@ -87,13 +95,12 @@ class Phone(models.Model):
     screen = models.ForeignKey(Screen, on_delete=models.CASCADE)
     cam = models.ForeignKey(Cam, on_delete=models.CASCADE)
     battary = models.ForeignKey(Battary, on_delete=models.CASCADE)
+    price = models.ForeignKey(Price, on_delete=models.CASCADE)
 
     def __str__(self):
-        return 'Телефон {} {} {} {} {} {}, сохранен'.format(self.manufacture,
-                                                            self.cpu, self.rom,
-                                                            self.screen,
-                                                            self.cam,
-                                                            self.battary)
-
-
-
+        return 'Телефон {} {} {} {} {} {} {}'.format(self.manufacture,
+                                                     self.cpu, self.rom,
+                                                     self.screen,
+                                                     self.cam,
+                                                     self.battary,
+                                                     self.price)
