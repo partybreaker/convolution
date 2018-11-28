@@ -1,0 +1,5 @@
+notes.md
+.vscode
+*.sqlite3
+Pipfile
+Pipfile.lock
