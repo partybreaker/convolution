@@ -15,6 +15,14 @@ class Cam(models.Model):
     def __str__(self):
         return self.name
 
+    @property
+    def get_cam(self):
+        return self.name
+
+    @property
+    def get_cam_weight(self):
+        return self.weight
+
     class Meta:
         verbose_name = 'Камера'
         verbose_name_plural = 'Камера'
@@ -26,6 +34,14 @@ class Manufacture(models.Model):
 
     def __str__(self):
         return self.name
+
+    @property
+    def get_manufacture(self):
+        return self.name
+
+    @property
+    def get_manufacture_weight(self):
+        return self.weight
 
     class Meta:
         verbose_name = 'Производитель'
@@ -39,6 +55,14 @@ class Battary(models.Model):
     def __str__(self):
         return self.name
 
+    @property
+    def get_battary(self):
+        return self.name
+
+    @property
+    def get_battary_value(self):
+        return self.weight
+
     class Meta:
         verbose_name = 'Батарея'
         verbose_name_plural = 'Батарея'
@@ -50,6 +74,14 @@ class Screen(models.Model):
 
     def __str__(self):
         return self.name
+
+    @property
+    def get_screen(self):
+        return self.name
+
+    @property
+    def get_screen_weigth(self):
+        return self.weight
 
     class Meta:
         verbose_name = 'Экран'
@@ -63,6 +95,14 @@ class CPU(models.Model):
     def __str__(self):
         return self.name
 
+    @property
+    def get_cpu(self):
+        return self.name
+
+    @property
+    def get_cpu_weigth(self):
+        return self.weight
+
     class Meta:
         verbose_name = 'Процессор'
         verbose_name_plural = 'Процессор'
@@ -75,6 +115,14 @@ class ROM(models.Model):
     def __str__(self):
         return self.name
 
+    @property
+    def get_rom(self):
+        return self.name
+
+    @property
+    def get_rom_weight(self):
+        return self.weight
+
     class Meta:
         verbose_name = 'Оперативная память'
         verbose_name_plural = 'Оперативная память'
@@ -86,6 +134,14 @@ class Price(models.Model):
 
     def __str__(self):
         return str(self.value)
+
+    @property
+    def get_price(self):
+        return self.value
+
+        @property
+        def get_price_weight(self):
+            return self.weight
 
 
 class Phone(models.Model):
