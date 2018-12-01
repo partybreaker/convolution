@@ -7,6 +7,10 @@ class ValueWeight(models.Model):
     def __str__(self):
         return str(self.value)
 
+    # @property
+    # def foo(self):
+    # 	return self._foo
+
 
 class Cam(models.Model):
     name = models.CharField(max_length=2)
