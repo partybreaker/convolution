@@ -1,11 +1,20 @@
 from django.db import models
-
+import decimal
 
 class ValueWeight(models.Model):
     value = models.DecimalField(max_length=30, max_digits=10, decimal_places=5)
+    total = models.DecimalField(max_length=30, max_digits=10, decimal_places=5)
 
     def __str__(self):
         return str(self.value)
+
+    @property
+    def get_total(self):
+        return self.total
+
+    def get_value(self):
+        return self.value
+    
 
     # @property
     # def foo(self):
@@ -25,7 +34,8 @@ class Cam(models.Model):
 
     @property
     def get_cam_weight(self):
-        return self.weight
+        result = self.weight.get_value() / self.weight.get_total
+        return result
 
     class Meta:
         verbose_name = 'Камера'
@@ -45,7 +55,7 @@ class Manufacture(models.Model):
 
     @property
     def get_manufacture_weight(self):
-        return self.weight
+        return self.weight.get_value() / self.weight.get_total
 
     class Meta:
         verbose_name = 'Производитель'
@@ -65,7 +75,7 @@ class Battary(models.Model):
 
     @property
     def get_battary_value(self):
-        return self.weight
+        return self.weight.get_value() / self.weight.get_total
 
     class Meta:
         verbose_name = 'Батарея'
@@ -85,7 +95,8 @@ class Screen(models.Model):
 
     @property
     def get_screen_weigth(self):
-        return self.weight
+        return self.weight.get_value() / self.weight.get_total
+
 
     class Meta:
         verbose_name = 'Экран'
@@ -105,7 +116,8 @@ class CPU(models.Model):
 
     @property
     def get_cpu_weigth(self):
-        return self.weight
+        return self.weight.get_value() / self.weight.get_total
+
 
     class Meta:
         verbose_name = 'Процессор'
@@ -124,8 +136,9 @@ class ROM(models.Model):
         return self.name
 
     @property
-    def get_rom_weight(self):
-        return self.weight
+    def get_rom_weigth(self):
+        return self.weight.get_value() / self.weight.get_total
+
 
     class Meta:
         verbose_name = 'Оперативная память'
@@ -143,9 +156,10 @@ class Price(models.Model):
     def get_price(self):
         return self.value
 
-        @property
-        def get_price_weight(self):
-            return self.weight
+    @property
+    def get_price_weight(self):
+        return self.weight.get_value() / self.weight.get_total
+
 
 
 class Phone(models.Model):

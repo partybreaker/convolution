@@ -1,0 +1,55 @@
+{% extends "_base.html" %}
+{% block content %}
+
+ 		<!-- Compare basket -->
+		<div class="compare-basket">
+			<button class="action action--button action--compare"><i class="fa fa-check"></i><span class="action__text">Compare</span></button>
+		</div>
+		<!-- Main view -->
+		<div class="view">
+			<!-- Blueprint header -->
+
+			<!-- Product grid -->
+			<section class="grid">
+				{% for phone in phones%}
+				<!-- Products -->
+				<div class="product">
+					
+					<div class="product__info">
+						<img class="product__image" src="images/1.png" alt="Product" />
+						<h3 class="product__title">{{phone.manufacture}}</h3>
+						<span class="product__year extra highlight">{{phone.cpu}}</span>
+						<span class="product__region extra highlight">{{phone.rom}}</span>
+						<span class="product__varietal extra highlight">{{phone.cam}}</span>
+						<span class="product__alcohol extra highlight">{{phone.screen}}</span>
+						<span class="product__price highlight">{{phone.price}}</span>
+						<!--<button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="action__text">Add to cart</span></button> -->
+					</div>
+					<label class="action action--compare-add"><input type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
+					<!--<input class="check-hidden" type="checkbox">-->
+<!--				</div>
+				<div class="product">
+					<div class="product__info">
+						<img class="product__image" src="images/2.png" alt="Product 2" />
+						<h3 class="product__title"></h3>
+						<span class="product__year extra highlight">2013</span>
+						<span class="product__region extra highlight">California</span>
+						<span class="product__varietal extra highlight">Pinot Noir</span>
+						<span class="product__alcohol extra highlight">12%</span>
+						<span class="product__price highlight">$19.90</span>
+						<button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="action__text">Add to cart</span></button>
+					</div>
+					<label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label> -->
+					
+				</div>
+						{% endfor %}
+				
+			</section>
+		</div><!-- /view -->
+		<!-- product compare wrapper -->
+		<section class="compare">
+			<button class="action action--close"><i class="fa fa-remove"></i><span class="action__text action__text--invisible">Close comparison overlay</span></button>
+		</section>
+
+
+{% endblock content %}
