@@ -1,9 +1,10 @@
 from django.db import models
 import decimal
 
+
 class ValueWeight(models.Model):
-    value = models.DecimalField(max_length=30, max_digits=10, decimal_places=5)
-    total = models.DecimalField(max_length=30, max_digits=10, decimal_places=5)
+    value = models.DecimalField(max_length=30, max_digits=10, decimal_places=5) # F9    cof_F = 
+    total = models.DecimalField(max_length=30, max_digits=10, decimal_places=5) #
 
     def __str__(self):
         return str(self.value)
@@ -14,15 +15,14 @@ class ValueWeight(models.Model):
 
     def get_value(self):
         return self.value
-    
 
     # @property
     # def foo(self):
-    # 	return self._foo
+    #   return self._foo
 
 
 class Cam(models.Model):
-    name = models.CharField(max_length=2)
+    name = models.CharField(max_length=10)
     weight = models.ForeignKey(ValueWeight, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -63,7 +63,7 @@ class Manufacture(models.Model):
 
 
 class Battary(models.Model):
-    name = models.CharField(max_length=7)
+    name = models.CharField(max_length=10)
     weight = models.ForeignKey(ValueWeight, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -83,7 +83,7 @@ class Battary(models.Model):
 
 
 class Screen(models.Model):
-    name = models.CharField(max_length=2)
+    name = models.CharField(max_length=10)
     weight = models.ForeignKey(ValueWeight, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -96,7 +96,6 @@ class Screen(models.Model):
     @property
     def get_screen_weigth(self):
         return self.weight.get_value() / self.weight.get_total
-
 
     class Meta:
         verbose_name = 'Экран'
@@ -118,7 +117,6 @@ class CPU(models.Model):
     def get_cpu_weigth(self):
         return self.weight.get_value() / self.weight.get_total
 
-
     class Meta:
         verbose_name = 'Процессор'
         verbose_name_plural = 'Процессор'
@@ -138,7 +136,6 @@ class ROM(models.Model):
     @property
     def get_rom_weigth(self):
         return self.weight.get_value() / self.weight.get_total
-
 
     class Meta:
         verbose_name = 'Оперативная память'
@@ -161,7 +158,6 @@ class Price(models.Model):
         return self.weight.get_value() / self.weight.get_total
 
 
-
 class Phone(models.Model):
     manufacture = models.ForeignKey(Manufacture, on_delete=models.CASCADE)
     cpu = models.ForeignKey(CPU, on_delete=models.CASCADE)
@@ -178,3 +174,11 @@ class Phone(models.Model):
                                                      self.cam,
                                                      self.battary,
                                                      self.price)
+
+    @property
+    def get_conviction(self):
+        return self.manufacture.get_manufacture_weight \
+            + self.cpu.get_cpu_weigth \
+            + self.rom.get_rom_weigth + self.screen.get_screen_weigth \
+            + self.cam.get_cam_weight + self.battary.get_battary_value \
+            + self.price.get_price_weight

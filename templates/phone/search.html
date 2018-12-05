@@ -1,39 +1,102 @@
 {% extends "_base.html" %}
 
 {% block content %}
-<form>
+
+<!--<form>
   <div class="form-group">
     <label for="formControlRange">Производитель</label>
-    <input type="range" class="form-control-range" id="formControlRange">
+    <input type="range" min="0" max="10" value="5" class="form-control-range" id="formControlRange">
+   	Value: <span id='demo'></span>
   </div>
 
   <div class="form-group">
     <label for="formControlRange">Камера</label>
-    <input type="range" class="form-control-range" id="formControlRange">
+    <input type="range" min="0" max="10" value="5" class="form-control-range" id="camRange">
+    value: <span id='cam'></span>
   </div>
 
   <div class="form-group">
     <label for="formControlRange">Процессор</label>
-    <input type="range" class="form-control-range" id="formControlRange">
+    <input type="range"  min="0" max="10" value="5" class="form-control-range" id="cpuRange">
+    value : <span id='cpu'></span>
   </div>
   <div class="form-group">
     <label for="formControlRange">Память</label>
-    <input type="range" class="form-control-range" id="formControlRange">
+    <input type="range" min="0" max="10" value="5" class="form-control-range" id="romRange">
+    value : <span id='rom'></span>
   </div>
    <div class="form-group">
     <label for="formControlRange">Экран</label>
-    <input type="range" class="form-control-range" id="formControlRange">
+    <input type="range" min="0" max="10" value="5" class="form-control-range" id="screenRange">
+    value : <span id='screen'></span>
   </div>
-  <button class="btn btn-succes" id="POST">Поиск</button>
+  <div class="form-group">
+    <label for="formControlRange">Батарея</label>
+    <input type="range" min="0" max="10" value="5" class="form-control-range" id="battaryRange">
+    value : <span id='battary'></span>
+  </div>
+  <div class="form-group">
+    <label for="formControlRange">Цена</label>
+    <input type="range" min="0" max="10" value="5" class="form-control-range" id="priceRange">
+    value : <span id='price'></span>
+  </div>
+  <button class="btn btn-primary" id="POST">Поиск</button>
 </form>
-{% for phone in phones %}
-{{phone.manufacture.get_manufacture_weight}}
-{{phone.cam.get_cam_weight}}
-{{phone.battary.get_battary_value}}
-{{phone.screen.get_screen_weigth}}
-{{phone.cpu.get_cpu_weigth}}
-{{phone.rom.get_rom_weigth}}
-{{phone.price.get_price_weight}}
-	
-{% endfor %}
+<form> -->
+
+	<div role="main" class="ui-content">
+    <div id="mysliders">
+      <label for="slider-1">Производитель:</label>
+      <input class="add" type="range" name="slider-1" id="slider-1" min="0" max="10" value="5" />
+      <label for="slider-2">Экран:</label>
+      <input class="add" type="range" name="slider-2" id="slider-2" min="0" max="10" value="5" />
+      <label for="slider-3">CPU:</label>
+      <input class="add" type="range" name="slider-3" id="slider-3" min="0" max="10" value="5" />
+      <label for="slider-4">ROM:</label>
+      <input class="add" type="range" name="slider-4" id="slider-4" min="0" max="10" value="5" />
+      <label for="slider-5">Камера:</label>
+      <input class="add" type="range" name="slider-5" id="slider-5" min="0" max="10" value="5" />
+      <label for="slider-6">Батарея:</label>
+      <input class="add" type="range" name="slider-6" id="slider-6" min="0" max="10" value="5" />
+      <label for="slider-7">Цена:</label>
+      <input class="add" type="range" name="slider-7" id="slider-7" min="0" max="10" value="5" />
+    </div>
+    <hr />
+    <p>Total: <strong id="total"></strong></p>
+  </div>
+  </div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Производитель</th>
+      <th>CPU</th>
+      <th>Камера</th>
+      <th>ROM</th>
+      <th>Экран</th>
+      <th>Батарея</th>
+      <th>Цена</th>
+      
+    </tr> 
+  </thead>
+  {% for phone in phones %}
+  <tbody>
+
+    <tr>
+      <td>{{phone.manufacture}}</td>
+      <td>{{phone.cpu}}</td>
+      <td>{{phone.cam}}</td>
+      <td>{{phone.rom}}</td>
+      <td>{{phone.screen}}</td>
+      <td>{{phone.battary}}</td>
+      <td>{{phone.price}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+
+</form>
+
 {% endblock %}
