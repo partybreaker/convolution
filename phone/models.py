@@ -8,7 +8,7 @@ class Coefficient(models.Model):
     coeff = models.DecimalField(max_length=30, max_digits=10, decimal_places=5)
 
     def __str__(self):
-        return self.coeff
+        return str(self.coeff)
 
     @property
     def get_coeff(self):

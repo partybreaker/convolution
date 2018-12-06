@@ -79,9 +79,8 @@
       
     </tr> 
   </thead>
-  {% for phone in phones %}
   <tbody>
-
+  {% for phone in phones %}
     <tr>
       <td>{{phone.manufacture}}</td>
       <td>{{phone.cpu}}</td>
@@ -91,7 +90,7 @@
       <td>{{phone.battary}}</td>
       <td>{{phone.price}}</td>
     </tr>
-    % endfor %
+	{% endfor %}	
   </tbody>
 </table>
 

@@ -23,6 +23,10 @@ class UserProfile(models.Model):
     def __str__(self):
         return 'Пользователь {} {}'.format(self.first_name, self.last_name)
 
+    class Meta:
+        verbose_name = 'Профиль пользователя'
+        verbose_name_plural = 'Профиль пользователя'
+
 
 @receiver(post_save, sender=CustomUser)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
