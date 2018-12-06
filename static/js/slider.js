@@ -1,5 +1,5 @@
 // TODO: Рефакторинг двух функций(чтобы они принимали значения elements)
-// Первая возвращет сумму elements
+// Первая возвращет сумму elements //
 // Вторая должна делить каждый элемент на сумму всех elements
 function getSum(){
 		elements = document.getElementsByClassName('add');
