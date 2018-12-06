@@ -148,6 +148,10 @@ class Price(models.Model):
     def get_price_coefficient(self):
         return self.coefficient.get_coeff
 
+    class Meta:
+        verbose_name = 'Цена'
+        verbose_name_plural = 'Цена'
+
 
 class Phone(models.Model):
     manufacture = models.ForeignKey(Manufacture, on_delete=models.CASCADE)
@@ -165,4 +169,6 @@ class Phone(models.Model):
                                                      self.cam,
                                                      self.battary,
                                                      self.price)
-
+    class Meta:
+        verbose_name = 'Мобильный телефон'
+        verbose_name_plural = 'Мобильный телефон'

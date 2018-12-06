@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Cam, CPU, ROM, Manufacture, Screen, ValueWeight, Battary, Phone, Price
+from .models import Cam, CPU, ROM, Manufacture, Screen, Coefficient, Battary, Phone, Price
 
 
 # Register your models here.
@@ -38,11 +38,11 @@ class ScreenAdmin(admin.ModelAdmin):
 admin.site.register(Screen, ScreenAdmin)
 
 
-class ValueWeightAdmin(admin.ModelAdmin):
-    list_display = ('value', )
+class CoefficientAdmin(admin.ModelAdmin):
+    list_display = ('coeff', )
 
 
-admin.site.register(ValueWeight, ValueWeightAdmin)
+admin.site.register(Coefficient, CoefficientAdmin)
 
 
 class BattaryAdmin(admin.ModelAdmin):
