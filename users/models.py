@@ -17,7 +17,8 @@ class UserProfile(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=40)
-    phone = models.ForeignKey(Phone, on_delete=models.CASCADE, null=True)
+    # история рекомендуемых телефонов
+    phone = models.ForeignKey(Phone, on_delete=models.CASCADE)
 
     def __str__(self):
         return 'Пользователь {} {}'.format(self.first_name, self.last_name)

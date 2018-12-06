@@ -1,50 +1,41 @@
 from django.db import models
 import decimal
 
+# 
+#
 
-class ValueWeight(models.Model):
-    value = models.DecimalField(max_length=30, max_digits=10, decimal_places=5) # F9    cof_F = 
-    total = models.DecimalField(max_length=30, max_digits=10, decimal_places=5) #
+class Coefficient(models.Model):
+    coeff = models.DecimalField(max_length=30, max_digits=10, decimal_places=5)
 
     def __str__(self):
-        return str(self.value)
+        return self.coeff
 
     @property
-    def get_total(self):
-        return self.total
+    def get_coeff(self):
+        return self.coeff
 
-    def get_value(self):
-        return self.value
-
-    # @property
-    # def foo(self):
-    #   return self._foo
-
+    class Meta:
+        verbose_name = 'Коэффициент'
+        verbose_name_plural = 'Коэффициенты'
 
 class Cam(models.Model):
     name = models.CharField(max_length=10)
-    weight = models.ForeignKey(ValueWeight, on_delete=models.CASCADE)
+    coefficient = models.ForeignKey(Coefficient, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
-
-    @property
-    def get_cam(self):
-        return self.name
-
-    @property
-    def get_cam_weight(self):
-        result = self.weight.get_value() / self.weight.get_total
-        return result
 
     class Meta:
         verbose_name = 'Камера'
         verbose_name_plural = 'Камера'
 
+    @property
+    def get_cam_coefficient(self):
+        return self.coefficient.get_coeff
 
 class Manufacture(models.Model):
     name = models.CharField(max_length=60)
-    weight = models.ForeignKey(ValueWeight, on_delete=models.CASCADE)
+    coefficient = models.ForeignKey(Coefficient, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -54,8 +45,8 @@ class Manufacture(models.Model):
         return self.name
 
     @property
-    def get_manufacture_weight(self):
-        return self.weight.get_value() / self.weight.get_total
+    def get_manufacture_coeff(self):
+        return self.coefficient.get_coeff
 
     class Meta:
         verbose_name = 'Производитель'
@@ -64,7 +55,7 @@ class Manufacture(models.Model):
 
 class Battary(models.Model):
     name = models.CharField(max_length=10)
-    weight = models.ForeignKey(ValueWeight, on_delete=models.CASCADE)
+    coefficient = models.ForeignKey(Coefficient, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -74,8 +65,8 @@ class Battary(models.Model):
         return self.name
 
     @property
-    def get_battary_value(self):
-        return self.weight.get_value() / self.weight.get_total
+    def get_battary_coefficient(self):
+        return self.coefficient.get_coeff
 
     class Meta:
         verbose_name = 'Батарея'
@@ -84,7 +75,7 @@ class Battary(models.Model):
 
 class Screen(models.Model):
     name = models.CharField(max_length=10)
-    weight = models.ForeignKey(ValueWeight, on_delete=models.CASCADE)
+    coefficient = models.ForeignKey(Coefficient, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -94,8 +85,8 @@ class Screen(models.Model):
         return self.name
 
     @property
-    def get_screen_weigth(self):
-        return self.weight.get_value() / self.weight.get_total
+    def get_screen_coefficient(self):
+        return self.coefficient.get_coeff
 
     class Meta:
         verbose_name = 'Экран'
@@ -104,7 +95,7 @@ class Screen(models.Model):
 
 class CPU(models.Model):
     name = models.CharField(max_length=14)
-    weight = models.ForeignKey(ValueWeight, on_delete=models.CASCADE)
+    coefficient = models.ForeignKey(Coefficient, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -114,8 +105,8 @@ class CPU(models.Model):
         return self.name
 
     @property
-    def get_cpu_weigth(self):
-        return self.weight.get_value() / self.weight.get_total
+    def get_cpu_coefficient(self):
+        return self.coefficient.get_coeff
 
     class Meta:
         verbose_name = 'Процессор'
@@ -124,7 +115,7 @@ class CPU(models.Model):
 
 class ROM(models.Model):
     name = models.CharField(max_length=10)
-    weight = models.ForeignKey(ValueWeight, on_delete=models.CASCADE)
+    coefficient = models.ForeignKey(Coefficient, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -134,8 +125,8 @@ class ROM(models.Model):
         return self.name
 
     @property
-    def get_rom_weigth(self):
-        return self.weight.get_value() / self.weight.get_total
+    def get_rom_coefficient(self):
+        return self.coefficient.get_coeff
 
     class Meta:
         verbose_name = 'Оперативная память'
@@ -144,7 +135,7 @@ class ROM(models.Model):
 
 class Price(models.Model):
     value = models.DecimalField(max_length=30, max_digits=10, decimal_places=5)
-    weight = models.ForeignKey(ValueWeight, on_delete=models.CASCADE)
+    coefficient = models.ForeignKey(Coefficient, on_delete=models.CASCADE)
 
     def __str__(self):
         return str(self.value)
@@ -154,8 +145,8 @@ class Price(models.Model):
         return self.value
 
     @property
-    def get_price_weight(self):
-        return self.weight.get_value() / self.weight.get_total
+    def get_price_coefficient(self):
+        return self.coefficient.get_coeff
 
 
 class Phone(models.Model):
@@ -175,10 +166,3 @@ class Phone(models.Model):
                                                      self.battary,
                                                      self.price)
 
-    @property
-    def get_conviction(self):
-        return self.manufacture.get_manufacture_weight \
-            + self.cpu.get_cpu_weigth \
-            + self.rom.get_rom_weigth + self.screen.get_screen_weigth \
-            + self.cam.get_cam_weight + self.battary.get_battary_value \
-            + self.price.get_price_weight
