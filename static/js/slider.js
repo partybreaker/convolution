@@ -30,3 +30,11 @@ function getPi(total){
 }
 console.log(getPi(getSum()));
 
+// TODO: Добавить возможность скрывать div'ы
+function hidden(){
+}
+// TODO: Сортировка div'ов по скрытым тегам
+
+function sort_div(){
+}
+
