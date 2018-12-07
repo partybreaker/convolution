@@ -2,4 +2,4 @@
 
 Формула используемая в проекте
 
- ![Формула]()
+ ![Формула](https://github.com/partybreaker/convolution/blob/master/img/f.png)
