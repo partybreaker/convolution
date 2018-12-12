@@ -18,17 +18,19 @@ console.log(calcSum());
 // P(i) - расчет приведенных значений
 // p1 + p2 + ... + pn / total_sum_pi = 1
 //
-function calcPi(total){
-		elements = document.getElementsByClassName('add');
-		var count = elements.length;
-		//total = 0;
-		var result = [];
-		for (var i=0; i <elements.length; i++){
-				result.push(elements[i].value / total);
-		}
-		return result;
-}
-//console.log(calcPi(calcSum()));
+// function calcPi(total){
+// 		elements = document.getElementsByClassName('add');
+// 		var count = elements.length;
+// 		//total = 0;
+// 		var result = [];
+// 		for (var i=0; i <elements.length; i++){
+// 				result.push(elements[i].value / total);
+// 		}
+// 		return result;
+// }
+// console.log('Сумма');
+// console.log(calcPi(calcSum()));
+
 
 
 hidden = document.getElementsByClassName('hidden');
@@ -38,13 +40,14 @@ var res = [];
 for (var i = 0; i < hidden.length; i++){
 	res.push(hidden[i].innerText);
 }
-
+console.log('С бд');
 console.log(res);
 elements = document.getElementsByClassName('add');
 var calcPi = [];
 for (var i=0; i < elements.length; i++){
 	calcPi.push(elements[i].value / total);
 }
+console.log('Значение ползунка деленное на сумму')
 console.log(calcPi);
 len = calcPi.length;
 
@@ -54,6 +57,7 @@ for (i=0; i<res.length; i ++){
 	var value=res[i].replace(",", ".");
 	arr.push(parseFloat(value));
 }
+console.log('Из str в Float')
 console.log(arr);
 function matrix_value(array, len){
 	var newArr = [];
@@ -64,6 +68,7 @@ function matrix_value(array, len){
 matrix = matrix_value(arr, len);
 // console.log(matrix);
 x = Object.keys(matrix).length;
+// Узнаю глубину матрицы
 console.log(x);
 
 function range(n){
@@ -74,14 +79,50 @@ function matrix_l(dim, value){
 	return range(dim).map(v=> value);
   // return range(dim).map(v => range(dim).map(v => value));
 }
-
-console.log('FIRST ' + matrix_l(x, calcPi));
+	//матрица ползунков 7хn
+//console.log('FIRST ' + matrix_l(x, calcPi));
 second = matrix_l(x, calcPi);
+// console.log(second);
+// Ошибка тут
 console.log(second);
-function multiply_m(m1, m2){
-	var result = [];
-	return result = math.add(m1, m2);
+console.log(matrix);
+// function multiply_m(m1, m2){
+// 	var result = [];
+// 	return result = math.multiply(m1, m2);
+// }
+function mult(m1, m2){
+	for(var i=0;i<m1.length; i++){
+		console.log(m1[i]);
+	}
 }
-console.log('result ' + multiply_m(second, matrix));
+console.log('чет происходит');
+console.log(mult(second, matrix));
+// console.log(multiply_m(second, matrix));
 
 
+// multiplication_m = multiply_m(second, matrix);
+// Тут все работает вроде
+// console.log(multiply_m(second, matrix));
+
+// m = multiply_m(second, matrix)
+// res1 = [];
+// for(var i=0;i<m.length;i++){ // Матрица => массив1 и массив2
+//  for(var j=0;j<m[i].length;j++){ // массив1 
+//   res1[i] = (res1[i] || 0) + m[i][j];
+//  }
+// }
+
+// console.log(res1);
+// m.reduce(add, 0);
+// function add(x, y){
+// 	return x+y;
+// }
+// console.log(m);
+// function multi(n){
+// 	for(i = 0;i < n.length; i++){
+// 		for(j = 0; j< n.height; j++){
+// 			console.log(n[i][j])
+// 		}
+// 	}
+// }
+// console.log(multi(second));
