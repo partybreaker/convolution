@@ -169,6 +169,16 @@ class Phone(models.Model):
                                                      self.cam,
                                                      self.battary,
                                                      self.price)
+    @property
+    def get_sum_coeff(self):
+        return self.manufacture.get_manufacture_coeff \
+               + self.cpu.get_cpu_coefficient \
+               + self.rom.get_rom_coefficient \
+               + self.screen.get_screen_coefficient + \
+                self.cam.get_cam_coefficient + \
+                self.battary.get_battary_coefficient + \
+                self.price.get_price_coefficient
+
     class Meta:
         verbose_name = 'Мобильный телефон'
         verbose_name_plural = 'Мобильный телефон'

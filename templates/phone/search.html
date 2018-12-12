@@ -23,36 +23,31 @@
   </div>
   </div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Производитель</th>
-      <th>CPU</th>
-      <th>Камера</th>
-      <th>ROM</th>
-      <th>Экран</th>
-      <th>Батарея</th>
-      <th>Цена</th>
-      
-    </tr> 
-  </thead>
-  <tbody>
+  <!--<div class="product">-->
   {% for phone in phones %}
-    <tr>
-      <td>{{phone.manufacture}}</td>
-      <td>{{phone.cpu}}</td>
-      <td>{{phone.cam}}</td>
-      <td>{{phone.rom}}</td>
-      <td>{{phone.screen}}</td>
-      <td>{{phone.battary}}</td>
-      <td>{{phone.price}}</td>
-    </tr>
-	{% endfor %}	
-  </tbody>
-</table>
-
-
-
-</form>
-
+  <div class='product'>
+  	Производитель:
+	{{phone.manufacture}}
+	<span id="span" class="hidden">{{phone.manufacture.get_manufacture_coeff}}</span>
+	Экран: 
+	{{phone.screen}}
+	<span id="span" class="hidden">{{phone.screen.get_screen_coefficient}}</span>
+	Процессор:
+	{{phone.cpu}}
+	<span id='span' class='hidden'>{{phone.cpu.get_cpu_coefficient}}</span>
+	Память:
+	{{phone.rom}}
+	<span id='span' class='hidden'>{{phone.rom.get_rom_coefficient}}</span>
+	Камера:
+	{{phone.cam}}
+	<span id='span' class='hidden'>{{phone.cam.get_cam_coefficient}}</span>
+	Батарея:
+	{{phone.battary}}
+	<span id='span' class='hidden'>{{phone.battary.get_battary_coefficient}}</span>
+	Цена: 
+	{{phone.price}}
+	<span id='span' class='hidden'>{{phone.price.get_price_coefficient}}</span>
+  </div>	
+  {% endfor %}
+ 
 {% endblock %}
