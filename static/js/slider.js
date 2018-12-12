@@ -34,10 +34,12 @@ function calcPi(total){
 hidden = document.getElementsByClassName('hidden');
 // var r = 0;
 var res = [];
+// var sub = [];
 for (var i = 0; i < hidden.length; i++){
 	res.push(hidden[i].innerText);
 }
-//console.log(res);
+
+console.log(res);
 elements = document.getElementsByClassName('add');
 var calcPi = [];
 for (var i=0; i < elements.length; i++){
@@ -46,13 +48,20 @@ for (var i=0; i < elements.length; i++){
 console.log(calcPi);
 len = calcPi.length;
 
+// for (var i=0,l=arr.length;i<l;i++) result.push(+arr[i]); 
+var arr =[];
+for (i=0; i<res.length; i ++){
+	var value=res[i].replace(",", ".");
+	arr.push(parseFloat(value));
+}
+console.log(arr);
 function matrix_value(array, len){
 	var newArr = [];
 	while(array.length) newArr.push(array.splice(0, len));
 	return newArr;	
 }
 // console.log(matrix_value(res, len));
-matrix = matrix_value(res, len);
+matrix = matrix_value(arr, len);
 // console.log(matrix);
 x = Object.keys(matrix).length;
 console.log(x);
@@ -66,4 +75,13 @@ function matrix_l(dim, value){
   // return range(dim).map(v => range(dim).map(v => value));
 }
 
-console.log(matrix_l(x, calcPi));
+console.log('FIRST ' + matrix_l(x, calcPi));
+second = matrix_l(x, calcPi);
+console.log(second);
+function multiply_m(m1, m2){
+	var result = [];
+	return result = math.add(m1, m2);
+}
+console.log('result ' + multiply_m(second, matrix));
+
+
