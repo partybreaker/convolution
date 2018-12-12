@@ -90,13 +90,19 @@ console.log(matrix);
 // 	var result = [];
 // 	return result = math.multiply(m1, m2);
 // }
-function mult(m1, m2){
-	for(var i=0;i<m1.length; i++){
-		console.log(m1[i]);
+var result = [];
+for (i=0;i<second.length; i++){
+	for(c=0;c<second[i].length; c++){
+		result.push(second[i][c] * matrix[i][c]);
 	}
 }
 console.log('чет происходит');
-console.log(mult(second, matrix));
+console.log(result);
+r = matrix_value(result, len);
+console.log(r);
+
+// console.log(mult(second, matrix));
+// console.log(multiply_m(second, matrix));
 // console.log(multiply_m(second, matrix));
 
 
@@ -105,14 +111,14 @@ console.log(mult(second, matrix));
 // console.log(multiply_m(second, matrix));
 
 // m = multiply_m(second, matrix)
-// res1 = [];
-// for(var i=0;i<m.length;i++){ // Матрица => массив1 и массив2
-//  for(var j=0;j<m[i].length;j++){ // массив1 
-//   res1[i] = (res1[i] || 0) + m[i][j];
-//  }
-// }
+res1 = [];
+for(var i=0;i<r.length;i++){ // Матрица => массив1 и массив2
+ for(var j=0;j<r[i].length;j++){ // массив1 
+  res1[i] = (res1[i] || 0) + r[i][j];
+ }
+}
 
-// console.log(res1);
+console.log(res1);
 // m.reduce(add, 0);
 // function add(x, y){
 // 	return x+y;
