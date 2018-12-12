@@ -32,37 +32,38 @@ function calcPi(total){
 
 
 hidden = document.getElementsByClassName('hidden');
-var r = 0;
+// var r = 0;
 var res = [];
 for (var i = 0; i < hidden.length; i++){
 	res.push(hidden[i].innerText);
 }
-console.log(res);
+//console.log(res);
 elements = document.getElementsByClassName('add');
 var calcPi = [];
 for (var i=0; i < elements.length; i++){
 	calcPi.push(elements[i].value / total);
 }
 console.log(calcPi);
+len = calcPi.length;
 
-// Конвертация массива в матрицу (n) - размерности
-// n = res.length / calcPi.length
-//
-
-// Принимает матрицу и массив целлых чисел. Умножение описывает след формула:
-// p = [p1,p2,p3,p4,
-// 	p5,p6,p7,p8,
-// 	..., pn]
-// m = [m1, m2,m3, mn]
-//
-// result = [p1*m1, p2*m1,p3*m1,..., pn*m1, ....]
-//
-function multiply_matrix(){
-	while(i = 0; i < p.length){
-
-	}
+function matrix_value(array, len){
+	var newArr = [];
+	while(array.length) newArr.push(array.splice(0, len));
+	return newArr;	
 }
-// TODO: Сортировка div'ов по скрытым тегам
+// console.log(matrix_value(res, len));
+matrix = matrix_value(res, len);
+// console.log(matrix);
+x = Object.keys(matrix).length;
+console.log(x);
 
+function range(n){
+  return Array(n).fill(0);
+}
 
+function matrix_l(dim, value){
+	return range(dim).map(v=> value);
+  // return range(dim).map(v => range(dim).map(v => value));
+}
 
+console.log(matrix_l(x, calcPi));
