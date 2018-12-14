@@ -1,9 +1,11 @@
 ### Requirements :
 pipenv install 
 
-` - allauth
+`
+ - allauth
  - crispy-forms
- - Pillow `
+ - Pillow 
+`
 
 ### Экспертная система на основе линейной свертки
 
