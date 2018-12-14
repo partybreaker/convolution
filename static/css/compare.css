@@ -46,8 +46,8 @@ html {
 /* Main styles */
 body {
 	font-family: 'Lato', Calibri, Arial, sans-serif;
-	color: #CECECE;
-	background: #2A2B30;
+	color: #404040;
+	background: #FFFFFF;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }

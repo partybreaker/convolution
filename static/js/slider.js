@@ -33,22 +33,22 @@ console.log(calcSum());
 
 
 
-hidden = document.getElementsByClassName('hidden');
+hidden = document.getElementsByClassName("hidden"); //is-sr-only
 // var r = 0;
 var res = [];
 // var sub = [];
 for (var i = 0; i < hidden.length; i++){
 	res.push(hidden[i].innerText);
 }
-console.log('С бд');
-console.log(res);
+// console.log('С бд');
+// console.log(res);
 element = document.getElementsByClassName('add');
 var calcPi = [];
 for (var i=0; i < element.length; i++){
 	calcPi.push(element[i].value / total);
 }
-console.log('Значение ползунка деленное на сумму')
-console.log(calcPi);
+// console.log('Значение ползунка деленное на сумму')
+// console.log(calcPi);
 len = calcPi.length;
 
 // for (var i=0,l=arr.length;i<l;i++) result.push(+arr[i]); 
@@ -57,8 +57,8 @@ for (i=0; i<res.length; i ++){
 	var value=res[i].replace(",", ".");
 	arr.push(parseFloat(value));
 }
-console.log('Из str в Float')
-console.log(arr);
+// console.log('Из str в Float')
+// console.log(arr);
 function matrix_value(array, len){
 	var newArr = [];
 	while(array.length) newArr.push(array.splice(0, len));
@@ -69,7 +69,7 @@ matrix = matrix_value(arr, len);
 // console.log(matrix);
 x = Object.keys(matrix).length;
 // Узнаю глубину матрицы n
-console.log(x);
+// console.log(x);
 
 function range(n){
   return Array(n).fill(0);
@@ -84,8 +84,8 @@ function matrix_l(dim, value){
 second = matrix_l(x, calcPi);
 // console.log(second);
 // Ошибка тут
-console.log(second);
-console.log(matrix);
+// console.log(second);
+// console.log(matrix);
 // function multiply_m(m1, m2){
 // 	var result = [];
 // 	return result = math.multiply(m1, m2);
@@ -96,10 +96,10 @@ for (i=0;i<second.length; i++){
 		result.push(second[i][c] * matrix[i][c]);
 	}
 }
-console.log('чет происходит');
-console.log(result);
+// console.log('чет происходит');
+// console.log(result);
 r = matrix_value(result, len);
-console.log(r);
+// console.log(r);
 
 function convi(r){
 	res1= [];
@@ -117,16 +117,17 @@ function convi(r){
 //  }
 // }
 
-console.log(convi(r));
+// console.log(convi(r));
 var test = convi(r);
 
 // var users = document.getElementById('td');
-var span = document.getElementsByClassName('product');//[0].innerHTML = 'value';
+var span = document.getElementsByClassName('prod');//[0].innerHTML = 'value';
 console.log(span);
 for (i=0; i < span.length; i++){
 	span[i].id = test[i];
 }
 
+function result_sort(){
 var mylist = $('#list');
 var listitems = mylist.children('div').get();
 listitems.sort(function(a, b) {
@@ -137,7 +138,8 @@ listitems.sort(function(a, b) {
 $.each(listitems, function(idx, itm) {
     mylist.append(itm);
 });
-
+return mylist;
+}
 // function save_val(n){
 // 	var arr = [];
 // 	var el = document.getElementById('result');

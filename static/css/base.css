@@ -1,0 +1,14 @@
+.hidden{
+	display: none;
+}
+
+.product {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	min-width: 16em;
+	margin: 0 1em 2.5em;
+	padding: 1.5em 1.5em 2em;
+	background: #EFEFEF;
+	border-radius: 5px;
+}

@@ -53,7 +53,7 @@
 	min-width: 16em;
 	margin: 0 1em 2.5em;
 	padding: 1.5em 1.5em 2em;
-	background: #24252A;
+	background: #efefef;
 	border-radius: 5px;
 }
 
@@ -416,7 +416,7 @@
 .compare__item {
 	height: 100%;
 	width: 50%;
-	background: #24252A;
+	background: #efefef;
 	text-align: center;
 	cursor: default;
 	padding: 2em 0;
@@ -430,7 +430,7 @@
 }
 
 .compare__item:nth-of-type(2) {
-	background: #212227;
+	background: #FFF7F7;
 }
 
 .compare__item .product__title {
@@ -582,10 +582,10 @@
 		display: block;
 	}
 
-	.compare__item .product__year { border-bottom: 2px solid #2E294E; }
-	.compare__item .product__region { border-bottom: 2px solid #6D6FD2; }
-	.compare__item .product__varietal { border-bottom: 2px solid #4B5267; }
-	.compare__item .product__alcohol { border-bottom: 2px solid #3C3474; }
+	.compare__item .product__cpu { border-bottom: 2px solid #2E294E; }
+	.compare__item .product__rom { border-bottom: 2px solid #6D6FD2; }
+	.compare__item .product__cam { border-bottom: 2px solid #4B5267; }
+	.compare__item .product__screen { border-bottom: 2px solid #3C3474; }
 
 	.action--close {
 		padding: 0.5em 0.75em;

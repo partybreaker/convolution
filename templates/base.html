@@ -1,0 +1,121 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>{% block title %}Телефоны{% endblock title %}</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+ 
+  <!-- Place favicon.ico in the root directory -->
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/libs.css' %}">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+{% endblock %}
+
+</head>
+
+<body>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item logo" href="/">
+      <img src="{% static 'img/i-logo.svg' %}" class="logo__img" alt="">TopMobile <span>Подберем телефон под Ваши нужды</span>
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item">
+        Главная
+      </a>
+
+      <a href="/top-10.html" class="navbar-item">
+        Топ 10
+      </a>
+    
+      <a href="{% url 'about' %}" class="navbar-item">
+        Контакты
+      </a>
+    
+     
+    </div>
+{% if user.is_authenticated %}
+ <!-- Код для email и dropdown для всего отстального -->
+{% else %}
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary jsLoginModalOpen" href="{% url 'account_login' %}">
+            <strong>Вход</strong>
+          </a>
+          <a class="button is-light jsRegModalOpen" href="{% url 'account_signup' %}">
+            Регистрация
+          </a>
+        </div>
+      </div>
+    </div>
+        {% endif %}
+  </div>
+</nav>
+<main class="main">
+	{% block content %}
+		<!-- Content-->
+	{% endblock  %}
+<footer class="footer">
+ 
+</footer>
+{% block javascript %}
+<script src="js/vendor/modernizr-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>	
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/base.js' %}"></script>
+<script src="{% static 'js/classie.js' %}"></script>
+<script src="{% static 'js/slider.js' %}"></script>
+<script src="{% static 'js/math.min.js' %}"></script>
+<script>
+$('.jsSlider').on('change', function(){
+           $(this).parent().find('output').text($(this).val());
+            
+    });
+        
+        $('.jsOpenAttr').on('click', function(){
+            $(this).prev().find('li:nth-child(n+2)').slideToggle(300);
+            $(this).addClass('hide');
+        });
+     var  count = 0;
+     $('.phones__item').on('click', function(){
+        $(this).toggleClass('compare');  
+        });
+        
+    $('.jsCompare').on('click', function(){
+            $('.phones__item').not('.compare').addClass('hide');
+            $('.phone__attr').addClass('active');
+            $('.jsOpenAttr').addClass('hide');
+             
+        });
+	$('.navbar-burger').on('click', function(){
+		$(this).parent().next().slideToggle(300);
+	});
+    $('.jsRegModalOpen').on('click', function(){
+        $('.jsRegModal').addClass('is-active'); 
+    });
+$('.jsLoginModalOpen').on('click', function(){
+        $('.jsLoginModal').addClass('is-active'); 
+    });
+$('.jsModalClose').on('click', function() {
+    $(this).parent().removeClass('is-active');
+});
+
+</script>
+{% endblock javascript %}

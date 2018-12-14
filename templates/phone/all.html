@@ -1,9 +1,12 @@
 {% extends "_base.html" %}
 {% block content %}
-
- 		<!-- Compare basket -->
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/compare.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/component.css' %}">
+<!-- Compare basket -->
 		<div class="compare-basket">
-			<button class="action action--button action--compare"><i class="fa fa-check"></i><span class="action__text">Compare</span></button>
+			<button class="action action--button action--compare"><i class="fa fa-check"></i><span class="action__text">Сравнить</span></button>
 		</div>
 		<!-- Main view -->
 		<div class="view">
@@ -18,14 +21,14 @@
 					<div class="product__info">
 						<img class="product__image" src="images/1.png" alt="Product" />
 						<h3 class="product__title">{{phone.manufacture}}</h3>
-						<span class="product__year extra highlight">{{phone.cpu}}</span>
-						<span class="product__region extra highlight">{{phone.rom}}</span>
-						<span class="product__varietal extra highlight">{{phone.cam}}</span>
-						<span class="product__alcohol extra highlight">{{phone.screen}}</span>
+						<span class="product__cpu extra highlight">{{phone.cpu}}</span>
+						<span class="product__rom extra highlight">{{phone.rom}}</span>
+						<span class="product__cam extra highlight">{{phone.cam}}</span>
+						<span class="product__screen extra highlight">{{phone.screen}}</span>
 						<span class="product__price highlight">{{phone.price}}</span>
 						<!--<button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="action__text">Add to cart</span></button> -->
 					</div>
-					<label class="action action--compare-add"><input type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
+					<label class="action action--compare-add"><input type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Сравнить</span></label>
 					<!--<input class="check-hidden" type="checkbox">-->
 			</div>
 						{% endfor %}
@@ -35,8 +38,10 @@
 
 		<!-- product compare wrapper -->
 		<section class="compare">
-			<button class="action action--close"><i class="fa fa-remove"></i><span class="action__text action__text--invisible">Close comparison overlay</span></button>
+			<button class="action action--close"><i class="fa fa-remove"></i><span class="action__text action__text--invisible">Закрыть оверлей</span></button>
 		</section>
+
+
 
 
 {% endblock content %}

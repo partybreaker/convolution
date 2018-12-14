@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block content %}
+	<section class="section">
+    <div class="container">
+      <h1 class="title">Оцените характеристики</h1>
+      <h2 class="subtitle">
+        Выбранные характеристики <strong>влияют </strong>на рекомендованные Вам телефоны
+      </h2>
+      <div class="section__content">
+      <form action="all.html">
+       <div class="features">
+           <div class="features__item feature">
+           <h2 class="feature__title title is-small">Производитель</h2>   
+            <input class="slider has-output is-size-small is-success jsSlider add" min="0" max="10" value="1" step="1" type="range">
+            <output class="output">1</output>  
+           </div>
+           
+           
+           <div class="features__item feature">
+           <h2 class="feature__title title is-small">Диагональ экрана</h2>   
+            <input class="slider has-output is-size-small is-success jsSlider add" min="0" max="10" value="1" step="1" type="range">
+            <output class="output">1</output>  
+           </div>
+           
+           
+           <div class="features__item feature">
+           <h2 class="feature__title title is-small">Кол-во ядер</h2>   
+            <input class="slider has-output is-size-small is-success jsSlider add" min="0" max="10" value="1" step="1" type="range">
+            <output class="output">1</output>  
+           </div>
+           
+           <div class="features__item feature">
+           <h2 class="feature__title title is-small">Память</h2>   
+            <input class="slider has-output is-size-small is-success jsSlider add" min="0" max="10" value="1" step="1" type="range">
+            <output class="output">1</output>  
+           </div>
+           
+           <div class="features__item feature">
+           <h2 class="feature__title title is-small">Камера</h2>   
+            <input class="slider has-output is-size-small is-success jsSlider add" min="0" max="10" value="1" step="1" type="range">
+            <output class="output">1</output>  
+           </div>
+           
+           <div class="features__item feature">
+           <h2 class="feature__title title is-small">Емкость аккумулятора</h2>
+            <input  class="slider has-output is-size-small is-success jsSlider add" min="0" max="10" value="1" step="1" type="range">
+            <output class="output">1</output>  
+           </div>
+             
+           <div class="features__item feature">
+           <h2 class="feature__title title is-small">Цена</h2>   
+            <input class="slider has-output is-size-small is-success jsSlider add" min="0" max="10" value="1" step="1" type="range">
+            <output class="output">1</output>  
+           </div>
+          <div class="features__item is-pd0">
+          <input type="submit" class="button is-success" value="Подтвердить">
+          </div>
+          </div>
+          </form>
+      </div>
+    </div>
+  </section>
+
+  <div class="list">
+      <h1 class="title">Телефоны по Вашему запросу:</h1>
+      
+      	<!--<div class="list">-->
+      	{% for phone in phones %}
+	<div class="product">
+                      <li><strong>Производитель:</strong> <span>{{phone.manufacture}}</span></li>
+                      <span id="span" class="is-sr-only">{{phone.manufacture.get_manufacture_coeff}}</span>
+                      <li><strong>Экран:</strong> <span>{{phone.screen}}</span></li>
+					  <span id="span" class="is-sr-only">{{phone.screen.get_screen_coefficient}}</span>
+                      <li><strong>Кол-во ядер:</strong> <span>{{phone.cpu}}</span></li>
+					  <span id='span' class='is-sr-only'>{{phone.cpu.get_cpu_coefficient}}</span>
+                      <li><strong>Память:</strong> <span>{{phone.rom}}</span></li>
+					  <span id='span' class='is-sr-only'>{{phone.rom.get_rom_coefficient}}</span>
+                      <li><strong>Камера:</strong> <span>{{phone.cam}}</span></li>
+                      <span id='span' class='is-sr-only'>{{phone.cam.get_cam_coefficient}}</span>
+                      <li><strong>Аккумулятор:</strong> <span>{{phone.battary}}</span></li>
+                      <span class='is-sr-only'>{{phone.battary.get_battary_coefficient}}</span>
+                      <span id='span' class='is-sr-only'>{{phone.price.get_price_coefficient}}</span>
+                  </ul>
+                  <a class="button is-info jsOpenAttr">Показать все характеристики</a>
+                  <div class="price is-danges">{{phone.price}}</div>
+				  
+</div>
+          {% endfor %}
+
+</div>
+
+{% endblock content %}

@@ -1,25 +1,62 @@
 {% extends "_base.html" %}
-
 {% block content %}
+
+
 	<div role="main" class="ui-content">
-    <div id="mysliders">
-      <label for="slider-1">Производитель:</label>
-      <input class="add" type="range" name="slider-1" id="slider-1" min="0" max="10" value="5" />
-      <label for="slider-2">Экран:</label>
-      <input class="add" type="range" name="slider-2" id="slider-2" min="0" max="10" value="5" />
-      <label for="slider-3">CPU:</label>
-      <input class="add" type="range" name="slider-3" id="slider-3" min="0" max="10" value="5" />
-      <label for="slider-4">ROM:</label>
-      <input class="add" type="range" name="slider-4" id="slider-4" min="0" max="10" value="5" />
-      <label for="slider-5">Камера:</label>
-      <input class="add" type="range" name="slider-5" id="slider-5" min="0" max="10" value="5" />
-      <label for="slider-6">Батарея:</label>
-      <input class="add" type="range" name="slider-6" id="slider-6" min="0" max="10" value="5" />
-      <label for="slider-7">Цена:</label>
-      <input class="add" type="range" name="slider-7" id="slider-7" min="0" max="10" value="5" />
+    <!--<div id="mysliders">-->
+      <form>
+        <div class="row">
+          <div class="col">
+            <label for="slider-1">Производитель:</label>
+            <input class="form-control add" type="range" name="slider-1" id="slider-1" min="0" max="10" value="5" />
+            <output class="output">1</output> 
+         </div>
+         <div class="col">
+            <label for="slider-2">Экран:</label>
+            <input class="form-control add" type="range" name="slider-2" id="slider-2" min="0" max="10" value="5" />
+            <output class="output">1</output> 
+        </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="slider-3">CPU:</label>
+            <input class="form-control add" type="range" name="slider-3" id="slider-3" min="0" max="10" value="5" />
+            <output class="output">1</output> 
+          </div>
+          <div class="col">
+            <label for="slider-4">ROM:</label>
+            <input class="form-control add" type="range" name="slider-4" id="slider-4" min="0" max="10" value="5" />
+            <output class="output">1</output> 
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="slider-5">Камера:</label>
+            <input class="form-control add" type="range" name="slider-5" id="slider-5" min="0" max="10" value="5" />
+            <output class="output">1</output> 
+          </div>
+          <div class="col">
+            <label for="slider-6">Батарея:</label>
+            <input class="form-control add" type="range" name="slider-6" id="slider-6" min="0" max="10" value="5" />
+            <output class="output">1</output> 
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="slider-7">Цена:</label>
+            <input class="form-control add" type="range" name="slider-7" id="slider-7" min="0" max="10" value="5" />
+            <output class="output">1</output> 
+          </div>
+          </div>
+                <div class="col-sm-10">
+                  <button onclick='result_sort()' type='button' class="btn btn-primary">Применить</button>
+                </div>
+        </div>
+    </form>
     </div>
+ 
     <hr />
-    <p>Total: <strong id="total"></strong></p>
+ 
   </div>
   </div>
 
@@ -27,7 +64,7 @@
     <div id="list">
   {% for phone in phones %}
   
-  <div class='product'>
+  <div class='prod'>
   	Производитель:
 	{{phone.manufacture}}
 	<span id="span" class="hidden">{{phone.manufacture.get_manufacture_coeff}}</span>
@@ -55,4 +92,8 @@
 
   {% endfor %}
 </div> 
+
+
+
 {% endblock %}
+
