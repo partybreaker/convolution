@@ -161,6 +161,7 @@ class Phone(models.Model):
     cam = models.ForeignKey(Cam, on_delete=models.CASCADE)
     battary = models.ForeignKey(Battary, on_delete=models.CASCADE)
     price = models.ForeignKey(Price, on_delete=models.CASCADE)
+    # koff = models.DecimalField(max_length=30, max_digits=10, decimal_places=5)
 
     def __str__(self):
         return 'Телефон {} {} {} {} {} {} {}'.format(self.manufacture,

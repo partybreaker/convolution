@@ -15,8 +15,18 @@ def view_list_phone(request):
 
 @login_required
 def search_phone(request):
-	phones = Phone.objects.all()
-	return render(request, 'phone/search.html', {'phones': phones})
+    phones = Phone.objects.all()
+    return render(request, 'phone/search.html', {'phones': phones})
+
+
+# @login_required
+# def search_phone_post(request):
+#     if request.method == 'POST':
+#         phones = Phone.objects.get()
+#         phones.koff = request.POST('r')
+#         phones.save()
+#         message = 'updated'
+#     return HttpResponse(message)
 
 
 # @login_required

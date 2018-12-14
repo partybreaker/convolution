@@ -42,10 +42,10 @@ for (var i = 0; i < hidden.length; i++){
 }
 console.log('С бд');
 console.log(res);
-elements = document.getElementsByClassName('add');
+element = document.getElementsByClassName('add');
 var calcPi = [];
-for (var i=0; i < elements.length; i++){
-	calcPi.push(elements[i].value / total);
+for (var i=0; i < element.length; i++){
+	calcPi.push(element[i].value / total);
 }
 console.log('Значение ползунка деленное на сумму')
 console.log(calcPi);
@@ -68,7 +68,7 @@ function matrix_value(array, len){
 matrix = matrix_value(arr, len);
 // console.log(matrix);
 x = Object.keys(matrix).length;
-// Узнаю глубину матрицы
+// Узнаю глубину матрицы n
 console.log(x);
 
 function range(n){
@@ -79,7 +79,7 @@ function matrix_l(dim, value){
 	return range(dim).map(v=> value);
   // return range(dim).map(v => range(dim).map(v => value));
 }
-	//матрица ползунков 7хn
+// матрица ползунков 7хn
 //console.log('FIRST ' + matrix_l(x, calcPi));
 second = matrix_l(x, calcPi);
 // console.log(second);
@@ -101,34 +101,50 @@ console.log(result);
 r = matrix_value(result, len);
 console.log(r);
 
-// console.log(mult(second, matrix));
-// console.log(multiply_m(second, matrix));
-// console.log(multiply_m(second, matrix));
+function convi(r){
+	res1= [];
+	for(var i=0; i < r.length; i++){
+		for(var j=0; j < r[i].length; j++){
+			res1[i] = (res1[i] || 0) + r[i][j];
+		}
+	}
+	return res1;
+}
+// res1 = [];
+// for(var i=0;i<r.length;i++){ // Матрица => массив1 и массив2
+//  for(var j=0;j<r[i].length;j++){ // массив1 
+//   res1[i] = (res1[i] || 0) + r[i][j];
+//  }
+// }
 
+console.log(convi(r));
+var test = convi(r);
 
-// multiplication_m = multiply_m(second, matrix);
-// Тут все работает вроде
-// console.log(multiply_m(second, matrix));
-
-// m = multiply_m(second, matrix)
-res1 = [];
-for(var i=0;i<r.length;i++){ // Матрица => массив1 и массив2
- for(var j=0;j<r[i].length;j++){ // массив1 
-  res1[i] = (res1[i] || 0) + r[i][j];
- }
+// var users = document.getElementById('td');
+var span = document.getElementsByClassName('product');//[0].innerHTML = 'value';
+console.log(span);
+for (i=0; i < span.length; i++){
+	span[i].id = test[i];
 }
 
-console.log(res1);
-// m.reduce(add, 0);
-// function add(x, y){
-// 	return x+y;
-// }
-// console.log(m);
-// function multi(n){
-// 	for(i = 0;i < n.length; i++){
-// 		for(j = 0; j< n.height; j++){
-// 			console.log(n[i][j])
-// 		}
+var mylist = $('#list');
+var listitems = mylist.children('div').get();
+listitems.sort(function(a, b) {
+    var compA = $(a).attr('id').toUpperCase();
+    var compB = $(b).attr('id').toUpperCase();
+    return (compA > compB) ? -1 : (compA < compB) ? 1 : 0;
+})
+$.each(listitems, function(idx, itm) {
+    mylist.append(itm);
+});
+
+// function save_val(n){
+// 	var arr = [];
+// 	var el = document.getElementById('result');
+// 	for(i=0; i<n.length; i++){
+// 		el.elements[i].value = n[i];
 // 	}
+
 // }
-// console.log(multi(second));
+// console.log(save_val(test));
+
