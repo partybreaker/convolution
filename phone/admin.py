@@ -1,15 +1,15 @@
 from django.contrib import admin
-from .models import Cam, CPU, ROM, Manufacture, Screen, Coefficient, Battary, Phone, Price
+from .models import Cam, CPU, ROM, Manufacture, Screen, Coefficient, Battary, Phone, Price, Image
 
 
 # Register your models here.
 class CamAdmin(admin.ModelAdmin):
     list_display = ('name', 'get_cam_coeff',)
 
-
     def get_cam_coeff(self, object):
         return object.coefficient
     get_cam_coeff.short_description = 'Коэффициент'
+
 
 admin.site.register(Cam, CamAdmin)
 
@@ -39,9 +39,10 @@ admin.site.register(ROM, ROMAdmin)
 class ManufactureAdmin(admin.ModelAdmin):
     list_display = ('name', 'get_manf_coeff',)
 
-    def get_manf_coeff(self,object):
+    def get_manf_coeff(self, object):
         return object.coefficient
     get_manf_coeff.short_description = 'Коэффициент'
+
 
 admin.site.register(Manufacture, ManufactureAdmin)
 
@@ -71,9 +72,19 @@ class BattaryAdmin(admin.ModelAdmin):
         return object.coefficient
     get_batt_coeff.short_description = 'Коэффициент'
 
+
 admin.site.register(Battary, BattaryAdmin)
 
-admin.site.register(Phone)
+
+class InlineImage(admin.TabularInline):
+    model = Image
+
+
+class PhoneAdmin(admin.ModelAdmin):
+    inlines = [InlineImage]
+
+
+admin.site.register(Phone, PhoneAdmin)
 
 
 class PriceAdmin(admin.ModelAdmin):
@@ -82,5 +93,6 @@ class PriceAdmin(admin.ModelAdmin):
     def get_price_coeff(self, object):
         return object.coefficient
     get_price_coeff.short_description = 'Коэффициент'
+
 
 admin.site.register(Price, PriceAdmin)

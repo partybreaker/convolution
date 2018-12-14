@@ -1,8 +1,9 @@
 from django.db import models
 import decimal
 
-# 
 #
+#
+
 
 class Coefficient(models.Model):
     coeff = models.DecimalField(max_length=30, max_digits=10, decimal_places=5)
@@ -18,6 +19,7 @@ class Coefficient(models.Model):
         verbose_name = 'Коэффициент'
         verbose_name_plural = 'Коэффициенты'
 
+
 class Cam(models.Model):
     name = models.CharField(max_length=10)
     coefficient = models.ForeignKey(Coefficient, on_delete=models.CASCADE)
@@ -32,6 +34,7 @@ class Cam(models.Model):
     @property
     def get_cam_coefficient(self):
         return self.coefficient.get_coeff
+
 
 class Manufacture(models.Model):
     name = models.CharField(max_length=60)
@@ -170,16 +173,23 @@ class Phone(models.Model):
                                                      self.cam,
                                                      self.battary,
                                                      self.price)
+
     @property
     def get_sum_coeff(self):
         return self.manufacture.get_manufacture_coeff \
-               + self.cpu.get_cpu_coefficient \
-               + self.rom.get_rom_coefficient \
-               + self.screen.get_screen_coefficient + \
-                self.cam.get_cam_coefficient + \
-                self.battary.get_battary_coefficient + \
-                self.price.get_price_coefficient
+            + self.cpu.get_cpu_coefficient \
+            + self.rom.get_rom_coefficient \
+            + self.screen.get_screen_coefficient + \
+            self.cam.get_cam_coefficient + \
+            self.battary.get_battary_coefficient + \
+            self.price.get_price_coefficient
 
     class Meta:
         verbose_name = 'Мобильный телефон'
         verbose_name_plural = 'Мобильный телефон'
+
+
+
+class Image(models.Model):
+    phone = models.ForeignKey(Phone, on_delete=models.CASCADE)
+    image = models.ImageField()
