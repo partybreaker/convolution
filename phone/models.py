@@ -164,6 +164,7 @@ class Phone(models.Model):
     cam = models.ForeignKey(Cam, on_delete=models.CASCADE)
     battary = models.ForeignKey(Battary, on_delete=models.CASCADE)
     price = models.ForeignKey(Price, on_delete=models.CASCADE)
+    image = models.ImageField()
     # koff = models.DecimalField(max_length=30, max_digits=10, decimal_places=5)
 
     def __str__(self):
@@ -190,6 +191,6 @@ class Phone(models.Model):
 
 
 
-class Image(models.Model):
-    phone = models.ForeignKey(Phone, on_delete=models.CASCADE)
-    image = models.ImageField()
+# class Image(models.Model):
+#     phone = models.ForeignKey(Phone, on_delete=models.CASCADE)
+#     image = models.ImageField()

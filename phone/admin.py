@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Cam, CPU, ROM, Manufacture, Screen, Coefficient, Battary, Phone, Price, Image
+from .models import Cam, CPU, ROM, Manufacture, Screen, Coefficient, Battary, Phone, Price
 
 
 # Register your models here.
@@ -76,12 +76,25 @@ class BattaryAdmin(admin.ModelAdmin):
 admin.site.register(Battary, BattaryAdmin)
 
 
-class InlineImage(admin.TabularInline):
-    model = Image
+# class InlineImage(admin.TabularInline):
+#     model = Image
 
 
+# class PhoneAdmin(admin.ModelAdmin):
+#     inlines = [InlineImage]
 class PhoneAdmin(admin.ModelAdmin):
-    inlines = [InlineImage]
+    fields = ('manufacture', 'cpu', 'rom', 'screen', 'cam', 'battary', 'price', 'image',)
+
+    # def get_image(self, object):
+    #     return mark_safe('<img src="{url}" width="{width}" height={height} />'.format(
+    #         url=object.image.url,
+    #         width=object.image.width,
+    #         height=object.image.height,
+    #     )
+    #     )
+
+    # def get_price(self, object):
+    #     return object.price
 
 
 admin.site.register(Phone, PhoneAdmin)

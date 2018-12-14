@@ -90,3 +90,38 @@
 </div>
 
 {% endblock content %}
+
+
+
+  <!--<div class="product">-->
+    <div id="list">
+  {% for phone in phones %}
+  
+  <div class='prod'>
+    <img src="{{phone.image.url}}">
+    Производитель:
+  {{phone.manufacture}}
+  <span id="span" class="hidden">{{phone.manufacture.get_manufacture_coeff}}</span>
+  Экран: 
+  {{phone.screen}}
+  <span id="span" class="hidden">{{phone.screen.get_screen_coefficient}}</span>
+  Процессор:
+  {{phone.cpu}}
+  <span id='span' class='hidden'>{{phone.cpu.get_cpu_coefficient}}</span>
+  Память:
+  {{phone.rom}}
+  <span id='span' class='hidden'>{{phone.rom.get_rom_coefficient}}</span>
+  Камера:
+  {{phone.cam}}
+  <span id='span' class='hidden'>{{phone.cam.get_cam_coefficient}}</span>
+  Батарея:
+  {{phone.battary}}
+  <span id='span' class='hidden'>{{phone.battary.get_battary_coefficient}}</span>
+  Цена: 
+  {{phone.price}}
+  <span id='span' class='hidden'>{{phone.price.get_price_coefficient}}</span>
+  <!--<span id='result' class="hidden" title=''></span>-->
+
+  </div>  
+
+  {% endfor %}

@@ -117,7 +117,7 @@ function convi(r){
 //  }
 // }
 
-// console.log(convi(r));
+console.log(convi(r));
 var test = convi(r);
 
 // var users = document.getElementById('td');

@@ -47,10 +47,14 @@
             <input class="form-control add" type="range" name="slider-7" id="slider-7" min="0" max="10" value="5" />
             <output class="output">1</output> 
           </div>
-          </div>
-                <div class="col-sm-10">
-                  <button onclick='result_sort()' type='button' class="btn btn-primary">Применить</button>
+         
+          
+                <div class="col-6" >
+                  <button style="margin-top: 29px;margin-right: 300px;margin-left: 430px;" onclick='result_sort()' type='button' class="btn btn-primary d-inline">Применить</button>
                 </div>
+              
+            </div>
+          </div>
         </div>
     </form>
     </div>
@@ -60,37 +64,42 @@
   </div>
   </div>
 
-  <!--<div class="product">-->
-    <div id="list">
-  {% for phone in phones %}
-  
-  <div class='prod'>
-  	Производитель:
-	{{phone.manufacture}}
-	<span id="span" class="hidden">{{phone.manufacture.get_manufacture_coeff}}</span>
-	Экран: 
-	{{phone.screen}}
-	<span id="span" class="hidden">{{phone.screen.get_screen_coefficient}}</span>
-	Процессор:
-	{{phone.cpu}}
-	<span id='span' class='hidden'>{{phone.cpu.get_cpu_coefficient}}</span>
-	Память:
-	{{phone.rom}}
-	<span id='span' class='hidden'>{{phone.rom.get_rom_coefficient}}</span>
-	Камера:
-	{{phone.cam}}
-	<span id='span' class='hidden'>{{phone.cam.get_cam_coefficient}}</span>
-	Батарея:
-	{{phone.battary}}
-	<span id='span' class='hidden'>{{phone.battary.get_battary_coefficient}}</span>
-	Цена: 
-	{{phone.price}}
-	<span id='span' class='hidden'>{{phone.price.get_price_coefficient}}</span>
-  <!--<span id='result' class="hidden" title=''></span>-->
 
-  </div>	
+ 
+  <div class="card-group" id='list'>
+     {% for phone in phones %}
+  <div class="card prod" style="width: 18rem;">
+  <img class="card-img-top" src="{{phone.image.url}}" alt="" style='width:220px;height:280px;'>
+  <div class="card-body">
+          <h5 class="card-title">{{phone.manufacture}}</h5>
+  <ul class="list-group list-group-flush">
+
+    <li class="list-group-item">Производитель: {{phone.manufacture}}</li>
+    <span id="span" class="hidden">{{phone.manufacture.get_manufacture_coeff}}</span>
+    <li class="list-group-item">Экран: {{phone.screen}}</li>
+    <span id="span" class="hidden">{{phone.screen.get_screen_coefficient}}</span>
+    <li class="list-group-item">Процессор: {{phone.cpu}}</li>
+    <span id='span' class='hidden'>{{phone.cpu.get_cpu_coefficient}}</span>
+    <li class="list-group-item">Память: {{phone.rom}}</li>
+    <span id='span' class='hidden'>{{phone.rom.get_rom_coefficient}}</span>
+    <li class="list-group-item">Камера: {{phone.cam}}</li>
+    <span id='span' class='hidden'>{{phone.cam.get_cam_coefficient}}</span>
+    <li class="list-group-item">Батарея: {{phone.battary}}</li>
+    <span id='span' class='hidden'>{{phone.battary.get_battary_coefficient}}</span>
+    <li class="list-group-item">Цена: {{phone.price}}</li>
+    <span id='span' class='hidden'>{{phone.price.get_price_coefficient}}</span>
+
+    
+    
+    
+  </ul>
+    
+  </div>
+</div>
+
 
   {% endfor %}
+  </div>
 </div> 
 
 
