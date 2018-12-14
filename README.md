@@ -1,3 +1,10 @@
+### Requirements :
+pipenv install 
+
+` - allauth
+ - crispy-forms
+ - Pillow `
+
 ### Экспертная система на основе линейной свертки
 
 Формула используемая в проекте
