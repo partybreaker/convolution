@@ -1,5 +1,9 @@
 # Expert system based on linear convolution
 
+:exclamation: The code needs to be refactored.
+
+Expert system for :iphone: selection
+
 Django is used as a 'backend', javascript was used to perform calculations.
 
 Formula used in the project:
@@ -18,23 +22,23 @@ Formula used in the project:
    pipenv shell
    ```
 
- 3. Set up the initial migration for our custom user models in users and build the database.
+ 3. Set up the initial migration for our custom models.
 
  	```
- 	python manage.py makemigrations
- 	python manage.py migrate
+   python manage.py makemigrations
+   python manage.py migrate
  	```
 
  4. Create superuser:
 
  	```
- 	python manage.py createsuperuser
+   python manage.py createsuperuser
  	```
 
  5. Start Server:
 
  	```
- 	python manage.py runserver
+   python manage.py runserver
  	```
 
 Load the site at http://127.0.0.1:8000.
