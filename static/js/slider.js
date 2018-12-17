@@ -13,7 +13,13 @@ function calcSum(){
 		}
 		return total;
 }
-console.log(calcSum());
+console.log(setTimeout(calcSum(), 1000));
+// elements = document.getElementsByClassName('output');
+// for (var i=0; i< elements.length; i++){
+// 	 console.log(elements[i].value);
+// }
+// console.log(calcSum());
+
 
 // P(i) - расчет приведенных значений
 // p1 + p2 + ... + pn / total_sum_pi = 1
@@ -42,11 +48,15 @@ for (var i = 0; i < hidden.length; i++){
 }
 // console.log('С бд');
 // console.log(res);
+function SumEl(){
 element = document.getElementsByClassName('add');
 var calcPi = [];
 for (var i=0; i < element.length; i++){
 	calcPi.push(element[i].value / total);
 }
+return calcPi;
+}
+var calcPi = SumEl();
 // console.log('Значение ползунка деленное на сумму')
 // console.log(calcPi);
 len = calcPi.length;
@@ -98,7 +108,7 @@ for (i=0;i<second.length; i++){
 }
 // console.log('чет происходит');
 // console.log(result);
-r = matrix_value(result, len);
+var r = matrix_value(result, len);
 // console.log(r);
 
 function convi(r){

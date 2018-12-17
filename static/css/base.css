@@ -1,6 +1,9 @@
 .hidden{
 	display: none;
 }
+.target{
+	display: none;
+}
 
 .product {
 	position: relative;

@@ -8,49 +8,49 @@
         <div class="row">
           <div class="col">
             <label for="slider-1">Производитель:</label>
-            <input class="form-control add" type="range" name="slider-1" id="slider-1" min="0" max="10" value="5" />
-            <output class="output">1</output> 
+            <input class="form-control add" type="range" name="slider-1" id="slider-1" min="0" max="10" value="5" onchange="calcSum()" />
+            <output class="output" onchange="calcSum()">1</output> 
          </div>
          <div class="col">
             <label for="slider-2">Экран:</label>
-            <input class="form-control add" type="range" name="slider-2" id="slider-2" min="0" max="10" value="5" />
-            <output class="output">1</output> 
+            <input class="form-control add" type="range" name="slider-2" id="slider-2" min="0" max="10" value="5" onchange="calcSum()" />
+            <output class="output" onchange="calcSum()">1</output> 
         </div>
         </div>
         <div class="row">
           <div class="col">
             <label for="slider-3">CPU:</label>
-            <input class="form-control add" type="range" name="slider-3" id="slider-3" min="0" max="10" value="5" />
-            <output class="output">1</output> 
+            <input class="form-control add" type="range" name="slider-3" id="slider-3" min="0" max="10" value="5" onchange="calcSum()" />
+            <output class="output" onchange="calcSum()">1</output> 
           </div>
           <div class="col">
             <label for="slider-4">ROM:</label>
-            <input class="form-control add" type="range" name="slider-4" id="slider-4" min="0" max="10" value="5" />
-            <output class="output">1</output> 
+            <input class="form-control add" type="range" name="slider-4" id="slider-4" min="0" max="10" value="5" onchange="calcSum()"/>
+            <output class="output" onchange="calcSum()">1</output> 
           </div>
         </div>
         <div class="row">
           <div class="col">
             <label for="slider-5">Камера:</label>
-            <input class="form-control add" type="range" name="slider-5" id="slider-5" min="0" max="10" value="5" />
-            <output class="output">1</output> 
+            <input class="form-control add" type="range" name="slider-5" id="slider-5" min="0" max="10" value="5" onchange="calcSum()"/>
+            <output class="output" onchange="calcSum()">1</output> 
           </div>
           <div class="col">
             <label for="slider-6">Батарея:</label>
-            <input class="form-control add" type="range" name="slider-6" id="slider-6" min="0" max="10" value="5" />
-            <output class="output">1</output> 
+            <input class="form-control add" type="range" name="slider-6" id="slider-6" min="0" max="10" value="5" onchange="calcSum()" />
+            <output class="output" onchange="calcSum()">1</output> 
           </div>
         </div>
         <div class="row">
           <div class="col">
             <label for="slider-7">Цена:</label>
-            <input class="form-control add" type="range" name="slider-7" id="slider-7" min="0" max="10" value="5" />
-            <output class="output">1</output> 
+            <input class="form-control add" type="range" name="slider-7" id="slider-7" min="0" max="10" value="5" onchange="calcSum()" />
+            <output class="output" onchange="calcSum()">1</output> 
           </div>
          
           
                 <div class="col-6" >
-                  <button style="margin-top: 29px;margin-right: 300px;margin-left: 430px;" onclick='result_sort()' type='button' class="btn btn-primary d-inline">Применить</button>
+                  <button style="margin-top: 29px;margin-right: 300px;margin-left: 430px;" onclick='result_sort()' id='toggle-button' type='button' class="btn btn-primary d-inline">Применить</button>
                 </div>
               
             </div>
@@ -65,8 +65,9 @@
   </div>
 
 
- 
-  <div class="card-group" id='list'>
+ <div class="card-deck-wrapper target ">
+
+  <div class="card-deck" id='list'>
      {% for phone in phones %}
   <div class="card prod" style="width: 18rem;">
   <img class="card-img-top" src="{{phone.image.url}}" alt="" style='width:220px;height:280px;'>
@@ -101,8 +102,17 @@
   {% endfor %}
   </div>
 </div> 
+</div>
+{% load static %}
+<script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script>
+
+  $('.add').on('change', function(){
+            $(this).parent().find('output').text($(this).val());
+            
+    });
 
 
-
+</script>
 {% endblock %}
 

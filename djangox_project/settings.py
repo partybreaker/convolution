@@ -133,6 +133,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static/st/')
+# Беда была тут, согласно 
+# https://stackoverflow.com/questions/50284845/django-unable-to-display-an-image-from-folder-within-media-folder
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = '/media/'
 # STATIC_ROOT = "static"
