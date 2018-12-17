@@ -12,14 +12,14 @@ Formula used in the project
  2. Clone the repo and configure the virtualenv:
 
    `git clone https://github.com/partybreaker/convolution.git
-    cd djangox
-    pipenv install
-    pipenv shell  `
+   cd djangox
+   pipenv install
+   pipenv shell  `
 
  3. Set up the initial migration for our custom user models in users and build the database.
 
  	`python manage.py makemigrations
- 	 python manage.py migrate`
+ 	python manage.py migrate`
 
  4. Create superuser:
 
