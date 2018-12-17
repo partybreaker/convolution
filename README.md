@@ -24,22 +24,22 @@ Formula used in the project:
 
  3. Set up the initial migration for our custom models.
 
- 	```
+   ```
    python manage.py makemigrations
    python manage.py migrate
- 	```
+   ```
 
  4. Create superuser:
 
- 	```
+   ```
    python manage.py createsuperuser
- 	```
+   ```
 
  5. Start Server:
 
- 	```
+   ```
    python manage.py runserver
- 	```
+   ```
 
 Load the site at http://127.0.0.1:8000.
 
