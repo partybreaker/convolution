@@ -17,7 +17,7 @@ Formula used in the project:
 
    ```
    git clone https://github.com/partybreaker/convolution.git
-   cd djangox
+   cd convolution
    pipenv install
    pipenv shell
    ```
