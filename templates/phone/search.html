@@ -11,43 +11,43 @@
         <div class="row">
           <div class="col">
             <label for="slider-1">Виробник:</label>
-            <input class="form-control add" type="range" name="slider-1" id="slider-1" min="0" max="10" value="5" onchange="calcSum()" />
+            <input class="form-control add" type="range" name="slider-1" id="slider-1" min="0" max="10" value="1" onchange="calcSum()" />
             <output class="output" onchange="calcSum()">1</output> 
          </div>
          <div class="col">
             <label for="slider-2"> Діагональ екрану:</label>
-            <input class="form-control add" type="range" name="slider-2" id="slider-2" min="0" max="10" value="5" onchange="calcSum()" />
+            <input class="form-control add" type="range" name="slider-2" id="slider-2" min="0" max="10" value="1" onchange="calcSum()" />
             <output class="output" onchange="calcSum()">1</output> 
         </div>
         </div>
         <div class="row">
           <div class="col">
             <label for="slider-3">Кількість ядер:</label>
-            <input class="form-control add" type="range" name="slider-3" id="slider-3" min="0" max="10" value="5" onchange="calcSum()" />
+            <input class="form-control add" type="range" name="slider-3" id="slider-3" min="0" max="10" value="1" onchange="calcSum()" />
             <output class="output" onchange="calcSum()">1</output> 
           </div>
           <div class="col">
             <label for="slider-4">Пам'ять:</label>
-            <input class="form-control add" type="range" name="slider-4" id="slider-4" min="0" max="10" value="5" onchange="calcSum()"/>
+            <input class="form-control add" type="range" name="slider-4" id="slider-4" min="0" max="10" value="1" onchange="calcSum()"/>
             <output class="output" onchange="calcSum()">1</output> 
           </div>
         </div>
         <div class="row">
           <div class="col">
             <label for="slider-5">Камера:</label>
-            <input class="form-control add" type="range" name="slider-5" id="slider-5" min="0" max="10" value="5" onchange="calcSum()"/>
+            <input class="form-control add" type="range" name="slider-5" id="slider-5" min="0" max="10" value="1" onchange="calcSum()"/>
             <output class="output" onchange="calcSum()">1</output> 
           </div>
           <div class="col">
             <label for="slider-6">Ємкість аккумулятору:</label>
-            <input class="form-control add" type="range" name="slider-6" id="slider-6" min="0" max="10" value="5" onchange="calcSum()" />
+            <input class="form-control add" type="range" name="slider-6" id="slider-6" min="0" max="10" value="1" onchange="calcSum()" />
             <output class="output" onchange="calcSum()">1</output> 
           </div>
         </div>
         <div class="row">
           <div class="col">
             <label for="slider-7">Ціна:</label>
-            <input class="form-control add" type="range" name="slider-7" id="slider-7" min="0" max="10" value="5" onchange="calcSum()" />
+            <input class="form-control add" type="range" name="slider-7" id="slider-7" min="0" max="10" value="1" onchange="calcSum()" />
             <output class="output" onchange="calcSum()">1</output> 
           </div>
          
@@ -70,7 +70,7 @@
 
 
  <div class="card-deck-wrapper target">
-  <button class='action action-close' style="margin-left:1200px;"><i class="fa fa-remove"></i><span class="action__text action__text--invisible">Закрыть</span></button>
+  <!--<button class='action action-close' onClick="this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;" style="margin-left:1200px;"><i class="fa fa-remove"></i><span class="close">Закрыть</span></button> -->
   <div class="card-deck" id='list'>
      {% for phone in phones %}
   <div class="card prod" style="width: 18rem;">
@@ -79,19 +79,19 @@
           <h5 class="card-title">{{phone.manufacture}}</h5>
   <ul class="list-group list-group-flush">
 
-    <li class="list-group-item">Производитель: {{phone.manufacture}}</li>
+    <li class="list-group-item">Виробник: {{phone.manufacture}}</li>
     <span id="span" class="hidden">{{phone.manufacture.get_manufacture_coeff}}</span>
-    <li class="list-group-item">Экран: {{phone.screen}}</li>
+    <li class="list-group-item">Діагональ екрану: {{phone.screen}}</li>
     <span id="span" class="hidden">{{phone.screen.get_screen_coefficient}}</span>
-    <li class="list-group-item">Процессор: {{phone.cpu}}</li>
+    <li class="list-group-item">Кількість ядер: {{phone.cpu}}</li>
     <span id='span' class='hidden'>{{phone.cpu.get_cpu_coefficient}}</span>
-    <li class="list-group-item">Память: {{phone.rom}}</li>
+    <li class="list-group-item">Пам'ять: {{phone.rom}}</li>
     <span id='span' class='hidden'>{{phone.rom.get_rom_coefficient}}</span>
     <li class="list-group-item">Камера: {{phone.cam}}</li>
     <span id='span' class='hidden'>{{phone.cam.get_cam_coefficient}}</span>
-    <li class="list-group-item">Батарея: {{phone.battary}}</li>
+    <li class="list-group-item">Ємкість аккумулятору: {{phone.battary}}</li>
     <span id='span' class='hidden'>{{phone.battary.get_battary_coefficient}}</span>
-    <li class="list-group-item">Цена: {{phone.price}}</li>
+    <li class="list-group-item">Ціна: {{phone.price}}</li>
     <span id='span' class='hidden'>{{phone.price.get_price_coefficient}}</span>
 
     

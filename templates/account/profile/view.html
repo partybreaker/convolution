@@ -1,5 +1,43 @@
 {% extends "_base.html" %}
 
 {% block content %}
-	
+	 <div class="card-deck-wrapper target">
+  <button class='action action-close' style="margin-left:1200px;"><i class="fa fa-remove"></i><span class="action__text action__text--invisible">Закрыть</span></button>
+  <div class="card-deck" id='list'>
+    
+  <div class="card prod" style="width: 18rem;">
+  <img class="card-img-top" src="{{phone.image.url}}" alt="" style='width:220px;height:280px;'>
+  <div class="card-body">
+  <h5 class="card-title">{{phone.manufacture}}</h5>
+  <ul class="list-group list-group-flush">
+
+    <li class="list-group-item">Производитель: {{phone.manufacture}}</li>
+    <span id="span" class="hidden">{{phone.manufacture.get_manufacture_coeff}}</span>
+    <li class="list-group-item">Экран: {{phone.screen}}</li>
+    <span id="span" class="hidden">{{phone.screen.get_screen_coefficient}}</span>
+    <li class="list-group-item">Процессор: {{phone.cpu}}</li>
+    <span id='span' class='hidden'>{{phone.cpu.get_cpu_coefficient}}</span>
+    <li class="list-group-item">Память: {{phone.rom}}</li>
+    <span id='span' class='hidden'>{{phone.rom.get_rom_coefficient}}</span>
+    <li class="list-group-item">Камера: {{phone.cam}}</li>
+    <span id='span' class='hidden'>{{phone.cam.get_cam_coefficient}}</span>
+    <li class="list-group-item">Батарея: {{phone.battary}}</li>
+    <span id='span' class='hidden'>{{phone.battary.get_battary_coefficient}}</span>
+    <li class="list-group-item">Цена: {{phone.price}}</li>
+    <span id='span' class='hidden'>{{phone.price.get_price_coefficient}}</span>
+
+    
+    
+    
+  </ul>
+    
+  </div>
+</div>
+</div>
+</div>	
+
+
+
+  </div>
+</div>
 {% endblock %}

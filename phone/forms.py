@@ -8,9 +8,10 @@ class PhoneForm(forms.ModelForm):
         fields = ('manufacture', 'cpu', 'rom',
                   'screen', 'cam', 'battary', 'price', )
 
+
 class PhoneCreateForm(forms.ModelForm):
 
-	class Meta:
-		model = Phone
+    class Meta:
+        model = Phone
 
-		fields = "__all__"
+        fields = "__all__"

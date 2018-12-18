@@ -19,6 +19,12 @@ def search_phone(request):
     return render(request, 'phone/search.html', {'phones': phones})
 
 
+@login_required
+def search_history(request):
+    phones = Phone.objects.all()
+    return render(request, 'phone/history', {'phones': phones})
+
+
 # @login_required
 # def search_phone_post(request):
 #     if request.method == 'POST':

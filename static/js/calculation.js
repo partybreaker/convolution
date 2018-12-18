@@ -112,6 +112,12 @@ function Click(){
 		});
 		return mylist;
 	}
+	this.store = function(){
+		var array = (new Click()).convinction();
+		for(i=0; i < array.length; i++){
+			
+		}
+	}
 }
 
 
