@@ -77,13 +77,16 @@ for (i=0; i<res.length; i ++){
 }
 // console.log('Из str в Float')
 // console.log(arr);
-function matrix_value(array, len){
+function matrix_value(array){
 	var newArr = [];
 	while(array.length) newArr.push(array.splice(0, len));
 	return newArr;	
 }
-// console.log(matrix_value(res, len));
+console.log('asd');
+//console.log(matrix_value(res, len));
 matrix = matrix_value(arr, len);
+console.log('matrix');
+console.log(matrix);
 // console.log(matrix);
 x = Object.keys(matrix).length;
 // Узнаю глубину матрицы n

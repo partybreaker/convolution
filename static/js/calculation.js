@@ -23,7 +23,7 @@ function Click(){
 			division.push(element[i].value / total);
 			// division.push(element[i].value / (new Click().sumCalc()));
 		}
-		return console.log(division);
+		return division;
 	}
 	this.convert = function(){
 		var convert_arr = [];
@@ -34,40 +34,66 @@ function Click(){
 		}
 		return convert_arr;
 	}
-	this.matrix = function(convert_arr, len){
+	// var array = this.convert();
+
+	this.matrix = function(){
 		var matrix = [];
-		while(convert_arr.length) matrix.push(array.splice(0,len));
-		return	matrix;
+		var convert_arr = (new Click()).convert();
+		// console.log(convert_arr);
+		// console.log('convert_arr');
+		// var len = convert_arr.length;
+		// hidden_arr = (new Click()).get_hidden();
+		// console.log(len);
+		
+		while(convert_arr.length) matrix.push(convert_arr.splice(0, 7));
+		return matrix;
 	}
-	this.matrix_depth = function(matrix){
+	this.matrix_depth = function(){
+		var matrix = (new Click()).matrix();
 		var x = Object.keys(matrix).length
-		return x
+		return x;
 	}
-	this.range = function(n){
+	this.range = function(){
+		var n = (new Click()).matrix_depth();
 		return Array(n).fill(0);
 	}
-	this.matrix_l = function(dim, value){
-		return	range(dim).map(v => value);
+	this.matrix_l = function(){
+		var range = (new Click()).range();
+		var dim = (new Click()).matrix_depth();
+		var value = (new Click()).sum_el();
+		return	(new Click()).range(dim).map(v => value);
 	}
-	this.matrix_mult = function(matrix_l){
+	this.matrix_mult = function(){
+		var matrix_l = (new Click()).matrix_l();
+		// console.log(matrix_l);
+		var matrix = (new Click()).matrix();
 		var result = [];
 		for (i=0; i < matrix_l.length; i++){
-			for(c=0; c < matrix_l[c].length; c++){
+			for(c=0; c < matrix_l[i].length; c++){
 				result.push(matrix_l[i][c] * matrix[i][c]);
 			}
 		}
 		return result;
 	}
-	this.convinction = function(n){
+	this.conver_r = function(){
+		var matrix_mult = (new Click()).matrix_mult();
+		var matrix = [];
+		while(matrix_mult.length) matrix.push(matrix_mult.splice(0, 7));
+		return matrix;
+
+	}
+	this.convinction = function(){
+		var n = (new Click()).conver_r();
 		result = [];
 		for (var i=0; i < n.length; i ++){
-			for (var j=0; k < n[i].length; j++){
+			for (var j=0; j < n[i].length; j++){
 				result[i] = (result[i] || 0) + n[i][j];
 			}
 		}
-		return result
+		return result;
 	}
 	this.div_add = function(convinction){
+		var test = (new Click()).convinction();
 		var span = document.getElementsByClassName('prod');
 		for (i=0; i < span.length; i++){
 			span[i].id = test[i];
