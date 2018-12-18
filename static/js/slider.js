@@ -3,6 +3,12 @@
 // Вторая должна делить каждый элемент на сумму всех elements
 
 // функция расчитывает общую сумму значений вводиммых пользователем с помощью элемента html <input range>
+
+function Click(){
+	var s = calcSum();
+	return s;
+}
+
 function calcSum(){
 		elements = document.getElementsByClassName('add');
 		var count = elements.length;
@@ -13,32 +19,33 @@ function calcSum(){
 		}
 		return total;
 }
-console.log(setTimeout(calcSum(), 1000));
-// elements = document.getElementsByClassName('output');
-// for (var i=0; i< elements.length; i++){
-// 	 console.log(elements[i].value);
+// document.getElementById('toggle-button').addEventListener('click', function () {
+//     calcSum(document.querySelectorAll('.add'));
+// });
+
+// function calcSum(elements){
+// 	var element = [];
+// 	var total;
+// 	elements = elements.length ? elements : [elements];
+// 	for (var i=0; i<elements.length; i++){
+// 		element.push(parseInt(elements[i].value));
+
+// 		// total = total + parseInt(elements[i].value)
+// 	}
+// 	var total = element.reduce((a, b ) => a+b, 0);
+// 	return total
+// 		// return console.log(element);
 // }
-// console.log(calcSum());
+
+var total = Click();
+console.log(total);
+
+
 
 
 // P(i) - расчет приведенных значений
 // p1 + p2 + ... + pn / total_sum_pi = 1
 //
-// function calcPi(total){
-// 		elements = document.getElementsByClassName('add');
-// 		var count = elements.length;
-// 		//total = 0;
-// 		var result = [];
-// 		for (var i=0; i <elements.length; i++){
-// 				result.push(elements[i].value / total);
-// 		}
-// 		return result;
-// }
-// console.log('Сумма');
-// console.log(calcPi(calcSum()));
-
-
-
 hidden = document.getElementsByClassName("hidden"); //is-sr-only
 // var r = 0;
 var res = [];
@@ -46,19 +53,20 @@ var res = [];
 for (var i = 0; i < hidden.length; i++){
 	res.push(hidden[i].innerText);
 }
-// console.log('С бд');
-// console.log(res);
+console.log('С бд');
+console.log(res);
 function SumEl(){
-element = document.getElementsByClassName('add');
-var calcPi = [];
-for (var i=0; i < element.length; i++){
-	calcPi.push(element[i].value / total);
+	element = document.getElementsByClassName('add');
+	var calcPi = [];
+	for (var i=0; i < element.length; i++){
+		calcPi.push(element[i].value / total);
+	}
+	return calcPi;
 }
-return calcPi;
-}
+
 var calcPi = SumEl();
-// console.log('Значение ползунка деленное на сумму')
-// console.log(calcPi);
+console.log('Значение ползунка деленное на сумму')
+console.log(calcPi);
 len = calcPi.length;
 
 // for (var i=0,l=arr.length;i<l;i++) result.push(+arr[i]); 
@@ -87,19 +95,13 @@ function range(n){
 
 function matrix_l(dim, value){
 	return range(dim).map(v=> value);
-  // return range(dim).map(v => range(dim).map(v => value));
 }
 // матрица ползунков 7хn
 //console.log('FIRST ' + matrix_l(x, calcPi));
 second = matrix_l(x, calcPi);
 // console.log(second);
-// Ошибка тут
-// console.log(second);
-// console.log(matrix);
-// function multiply_m(m1, m2){
-// 	var result = [];
-// 	return result = math.multiply(m1, m2);
-// }
+//Ошибка тут
+console.log(second);
 var result = [];
 for (i=0;i<second.length; i++){
 	for(c=0;c<second[i].length; c++){
@@ -109,7 +111,7 @@ for (i=0;i<second.length; i++){
 // console.log('чет происходит');
 // console.log(result);
 var r = matrix_value(result, len);
-// console.log(r);
+console.log(r);
 
 function convi(r){
 	res1= [];
@@ -127,9 +129,13 @@ function convi(r){
 //  }
 // }
 
-console.log(convi(r));
-var test = convi(r);
 
+function change(){
+	convi(r);
+}
+
+var test = change();
+// console.log(test);
 // var users = document.getElementById('td');
 var span = document.getElementsByClassName('prod');//[0].innerHTML = 'value';
 console.log(span);
@@ -150,13 +156,6 @@ $.each(listitems, function(idx, itm) {
 });
 return mylist;
 }
-// function save_val(n){
-// 	var arr = [];
-// 	var el = document.getElementById('result');
-// 	for(i=0; i<n.length; i++){
-// 		el.elements[i].value = n[i];
-// 	}
 
-// }
-// console.log(save_val(test));
+
 

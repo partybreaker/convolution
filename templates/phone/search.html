@@ -1,5 +1,8 @@
 {% extends "_base.html" %}
 {% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/component.css' %}">
+
 
 
 	<div role="main" class="ui-content">
@@ -7,24 +10,24 @@
       <form>
         <div class="row">
           <div class="col">
-            <label for="slider-1">Производитель:</label>
+            <label for="slider-1">Виробник:</label>
             <input class="form-control add" type="range" name="slider-1" id="slider-1" min="0" max="10" value="5" onchange="calcSum()" />
             <output class="output" onchange="calcSum()">1</output> 
          </div>
          <div class="col">
-            <label for="slider-2">Экран:</label>
+            <label for="slider-2"> Діагональ екрану:</label>
             <input class="form-control add" type="range" name="slider-2" id="slider-2" min="0" max="10" value="5" onchange="calcSum()" />
             <output class="output" onchange="calcSum()">1</output> 
         </div>
         </div>
         <div class="row">
           <div class="col">
-            <label for="slider-3">CPU:</label>
+            <label for="slider-3">Кількість ядер:</label>
             <input class="form-control add" type="range" name="slider-3" id="slider-3" min="0" max="10" value="5" onchange="calcSum()" />
             <output class="output" onchange="calcSum()">1</output> 
           </div>
           <div class="col">
-            <label for="slider-4">ROM:</label>
+            <label for="slider-4">Пам'ять:</label>
             <input class="form-control add" type="range" name="slider-4" id="slider-4" min="0" max="10" value="5" onchange="calcSum()"/>
             <output class="output" onchange="calcSum()">1</output> 
           </div>
@@ -36,21 +39,21 @@
             <output class="output" onchange="calcSum()">1</output> 
           </div>
           <div class="col">
-            <label for="slider-6">Батарея:</label>
+            <label for="slider-6">Ємкість аккумулятору:</label>
             <input class="form-control add" type="range" name="slider-6" id="slider-6" min="0" max="10" value="5" onchange="calcSum()" />
             <output class="output" onchange="calcSum()">1</output> 
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <label for="slider-7">Цена:</label>
+            <label for="slider-7">Ціна:</label>
             <input class="form-control add" type="range" name="slider-7" id="slider-7" min="0" max="10" value="5" onchange="calcSum()" />
             <output class="output" onchange="calcSum()">1</output> 
           </div>
          
           
                 <div class="col-6" >
-                  <button style="margin-top: 29px;margin-right: 300px;margin-left: 430px;" onclick='result_sort()' id='toggle-button' type='button' class="btn btn-primary d-inline">Применить</button>
+                  <button style="margin-top: 29px;margin-right: 300px;margin-left: 430px;" onclick='(new Click()).sumCalc(); (new Click()).get_hidden(); (new Click()).sum_el(); (new Click()).convert() ' id='toggle-button' type='button' class="btn btn-primary d-inline">Підтвердити</button>
                 </div>
               
             </div>
@@ -65,8 +68,8 @@
   </div>
 
 
- <div class="card-deck-wrapper target ">
-
+ <div class="card-deck-wrapper target">
+  <button class='action action-close' style="margin-left:1200px;"><i class="fa fa-remove"></i><span class="action__text action__text--invisible">Закрыть</span></button>
   <div class="card-deck" id='list'>
      {% for phone in phones %}
   <div class="card prod" style="width: 18rem;">

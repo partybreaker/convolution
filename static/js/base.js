@@ -17,10 +17,11 @@ function toggle (elements, specifiedDisplay) {
         element.style.display = specifiedDisplay || 'block';
       }
     } else {
-      element.style.display = 'none';
+      
     }
   }
   function isElementHidden (element) {
     return window.getComputedStyle(element, null).getPropertyValue('display') === 'none';
   }
 }
+
