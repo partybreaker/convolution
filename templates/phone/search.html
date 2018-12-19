@@ -76,28 +76,32 @@
   <div class="card prod" style="width: 18rem;">
   <img class="card-img-top" src="{{phone.image.url}}" alt="" style='width:220px;height:280px;'>
   <div class="card-body">
-          <h5 class="card-title">{{phone.manufacture}}</h5>
+          <h5 class="card-title">{{phone.model_phone}}</h5>
   <ul class="list-group list-group-flush">
 
-    <li class="list-group-item">Виробник: {{phone.manufacture}}</li>
-    <span id="span" class="hidden">{{phone.manufacture.get_manufacture_coeff}}</span>
-    <li class="list-group-item">Діагональ екрану: {{phone.screen}}</li>
-    <span id="span" class="hidden">{{phone.screen.get_screen_coefficient}}</span>
-    <li class="list-group-item">Кількість ядер: {{phone.cpu}}</li>
-    <span id='span' class='hidden'>{{phone.cpu.get_cpu_coefficient}}</span>
-    <li class="list-group-item">Пам'ять: {{phone.rom}}</li>
-    <span id='span' class='hidden'>{{phone.rom.get_rom_coefficient}}</span>
-    <li class="list-group-item">Камера: {{phone.cam}}</li>
-    <span id='span' class='hidden'>{{phone.cam.get_cam_coefficient}}</span>
-    <li class="list-group-item">Ємкість аккумулятору: {{phone.battary}}</li>
-    <span id='span' class='hidden'>{{phone.battary.get_battary_coefficient}}</span>
-    <li class="list-group-item">Ціна: {{phone.price}}</li>
-    <span id='span' class='hidden'>{{phone.price.get_price_coefficient}}</span>
+      <li class="list-group-item">Виробник: {{phone.manufacture}}</li>
+      <span id="span" class="hidden">{{phone.manufacture.get_manufacture_coeff}}</span>
+      <li class="list-group-item">Діагональ екрану: {{phone.screen}}</li>
+      <span id="span" class="hidden">{{phone.screen.get_screen_coefficient}}</span>
+      <li class="list-group-item hide">Кількість ядер: {{phone.cpu}}</li>
+      <span id='span' class='hidden'>{{phone.cpu.get_cpu_coefficient}}</span>
+      <li class="list-group-item hide">Пам'ять: {{phone.rom}}</li>
+      <span id='span' class='hidden'>{{phone.rom.get_rom_coefficient}}</span>
+      <li class="list-group-item hide" >Камера: {{phone.cam}}</li>
+      <span id='span' class='hidden'>{{phone.cam.get_cam_coefficient}}</span>
+      <li class="list-group-item hide">Ємкість аккумулятору: {{phone.battary}}</li>
+    </ul>
+      <button class="btn btn-primary jsOpenAttr">Показати усі характеристики</button>
+      <span id='span' class='hidden'>{{phone.battary.get_battary_coefficient}}</span>
+      <div class="price">
+       <center>{{phone.price|floatformat:2}}</center>
+     </div>
+      <span id='span' class='hidden'>{{phone.price.get_price_coefficient}}</span>
 
+      
     
     
-    
-  </ul>
+
     
   </div>
 </div>
@@ -111,10 +115,10 @@
 <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
 <script>
 
-  $('.add').on('change', function(){
-            $(this).parent().find('output').text($(this).val());
-            
-    });
+        $('.jsOpenAttr').on('click', function(){
+            $(this).prev().find('li:nth-child(n+2)').slideToggle(300);
+            $(this).addClass('hide');
+        });
 
 
 </script>

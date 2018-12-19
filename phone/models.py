@@ -157,6 +157,7 @@ class Price(models.Model):
 
 
 class Phone(models.Model):
+    model_phone = models.CharField(max_length=120)
     manufacture = models.ForeignKey(Manufacture, on_delete=models.CASCADE)
     cpu = models.ForeignKey(CPU, on_delete=models.CASCADE)
     rom = models.ForeignKey(ROM, on_delete=models.CASCADE)

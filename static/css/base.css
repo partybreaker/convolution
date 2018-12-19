@@ -4,7 +4,14 @@
 .target{
 	display: none;
 }
-
+.hide{
+	display: none;
+}
+.price{
+	font-size: 24px;
+    font-weight: 700;
+    color: #ff3860;
+}
 .product {
 	position: relative;
 	display: inline-block;

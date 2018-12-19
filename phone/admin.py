@@ -83,7 +83,7 @@ admin.site.register(Battary, BattaryAdmin)
 # class PhoneAdmin(admin.ModelAdmin):
 #     inlines = [InlineImage]
 class PhoneAdmin(admin.ModelAdmin):
-    fields = ('manufacture', 'cpu', 'rom', 'screen', 'cam', 'battary', 'price', 'image',)
+    fields = ('model_phone', 'manufacture', 'cpu', 'rom', 'screen', 'cam', 'battary', 'price', 'image',)
 
     # def get_image(self, object):
     #     return mark_safe('<img src="{url}" width="{width}" height={height} />'.format(
